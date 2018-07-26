@@ -54,4 +54,26 @@ note: __*do this step for each file that have composer.json*__
 * STRIVE FOR LOOSELY COUPLE DESIGN BETWEEN OBJECT THAT INTERACT.
 
 -------------------------
+#### chapter 3 : Decorator Pattern (Design Eye for The Inheritance Guy)
 
+* Decorator pattern is better used when we introduced to existing code that we want to extend its functionality
+
+* Decorator reduce the chance of bugs and side effects in legacy code .
+
+* Decorator it gives the object new responsibility dynamically at runtime using composition .
+
+* It follows the open-close principle .
+
+* General speaking design patterns add abstraction level that's add complexity to code that's way we should always use it on the parts that change and overusing it .
+
+* In other words ALWAYS IDENTIFY WHAT CHANGES.
+
+* Again ALWAYS IDENTIFY WHAT GOING TO CHANGE.
+
+* Decorators must have the same superclass as the object they decorate.
+
+* FAVOR COMPOSITION OVER INHERITANCE .
+
+* Inheritance makes static behavior but Composition make the behavior dynamic and it can change at runtime .
+
+------------------------------------

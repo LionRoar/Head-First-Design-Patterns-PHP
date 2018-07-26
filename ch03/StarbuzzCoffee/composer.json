@@ -1,0 +1,9 @@
+{
+  "name": "leo/StarbuzzCoffee",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "": "./"
+     }
+   }
+}
