@@ -1,0 +1,9 @@
+{
+  "name": "leo/PHP_IO_DECORATOR",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "": "./"
+     }
+   }
+}
