@@ -20,10 +20,20 @@ note: __*do this step for each file that have composer.json*__
 ```$ composer dump-autoload ```
 
 ---------------
+Notes index:
+* [chapter 1: Strategy Pattern](#ch1)
+
+* [chapter 2: Observer Pattern](#ch2)
+
+* [chapter 3 : Decorator Pattern (Design Eye for The Inheritance Guy)](#ch3)
+
+* [chapter 4 : Factory method , Abstract factory , Dependency Inversion](#ch4)
+
+---------------
 
 ## MY-NOTES
 
-### chapter 1:
+<h2 id="ch1">chapter 1: Strategy Pattern</h2>
 
 * encapsulate what change and you will have flexible system.
 
@@ -38,8 +48,7 @@ note: __*do this step for each file that have composer.json*__
 * Composition over inheritance.
 
 ------------------
-
-### chapter 2: Observer Pattern
+<h2 id="ch2"> chapter 2: Observer Pattern</h2>
 
 * best usage when there's single source of truth one object with many unknown dependents
 
@@ -54,7 +63,7 @@ note: __*do this step for each file that have composer.json*__
 * STRIVE FOR LOOSELY COUPLE DESIGN BETWEEN OBJECT THAT INTERACT.
 
 -------------------------
-#### chapter 3 : Decorator Pattern (Design Eye for The Inheritance Guy)
+<h2 id="ch3">chapter 3 : Decorator Pattern (Design Eye for The Inheritance Guy)</h2>
 
 * Decorator pattern is better used when we introduced to existing code that we want to extend its functionality
 
@@ -77,3 +86,38 @@ note: __*do this step for each file that have composer.json*__
 * Inheritance makes static behavior but Composition make the behavior dynamic and it can change at runtime .
 
 ------------------------------------
+<h2 id="ch4">chapter 4 : Factory method , Abstract factory , Dependency Inversion</h2>
+
+* Instantiation is an activity that should not be in public.
+
+* _new_ keyword means === an Implementation (not an Interface).
+
+* IDENTIFY WHAT CHANGES.
+
+* Factories (encapsulate) handle details of object creation.
+
+* **Factory method** relays on inheritance and delegates the object creation to subclasses which implements the factory method and create concrete objects.
+
+* Factory method lets subclasses decide what class instantiate not because it allows rather than it does not know the product .
+
+* Depend upon abstraction Not upon an implementation .
+
+* High-level components should not depend on low-level components.
+
+* **Strive for guidelines** :
+
+    * No variable should hold reference for a concrete class.
+
+    * No class should derive form concrete class.
+
+    * No method should override method on base class if so then the base class not relly an abtraction .
+
+* **Abstract Factory Pattern** provide an _interface_ for creating families of related objects.
+
+* The methods of the abstract factory are often FACTORY METHODS .
+
+* Abstract factory and Factory method are both great in terms of decoupling application from specific implementation.
+
+* Factory method uses _Classes_ (inheritance).
+
+* Abstract Factory uses _Objects_ (objects composition).
