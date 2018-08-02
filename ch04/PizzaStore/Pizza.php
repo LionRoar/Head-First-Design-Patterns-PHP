@@ -4,16 +4,12 @@ abstract class Pizza {
     protected $name;
     protected $dough;
     protected $sauce;
-    protected $toppings = array();
+    protected $veggies = array();
+    protected $cheese;
+    protected $pepperoni;
+    protected $clams;
 
-    public function prepare(){
-        echo "Preparing $this->name \n";
-        echo "Tossing dough ...\nAdding sauce ...\n";
-        echo "Adding Toppings: \n";
-        foreach($this->toppings as $t)
-            echo "$t ,";
-        echo "\n";
-    }
+    abstract public function prepare() : Pizza;
 
     public function bake(){
         echo "Bake for 25 minute at 350\n";
@@ -24,7 +20,15 @@ abstract class Pizza {
     public function box(){
         echo "Place Pizza in official PizzaStore box\n\n";
     }
+    public function setName(string $name){
+        $this->name = $name;
+    }
     public function getName() : string {
         return $this->name;
+    }
+
+    public function __toString()
+    {
+        return $this->name ;
     }
 }
