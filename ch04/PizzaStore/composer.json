@@ -1,0 +1,9 @@
+{
+  "name": "leo/PizzaStore",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "": "./"
+     }
+   }
+}
