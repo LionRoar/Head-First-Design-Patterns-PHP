@@ -29,6 +29,7 @@ Notes index:
 
 * [chapter 4 : Factory method , Abstract factory , Dependency Inversion](#ch4)
 
+* [chapter 5 : Singleton](#ch5)
 ---------------
 
 ## MY-NOTES
@@ -121,3 +122,11 @@ Notes index:
 * Factory method uses _Classes_ (inheritance).
 
 * Abstract Factory uses _Objects_ (objects composition).
+
+------------------------------------
+<h2 id="ch5">chapter 5 : Singleton</h2>
+
+* The singleton pattern ensures a class has only one instance and provide global access to it .
+
+* Singleton violates the _Single Responsibility Principle_
+

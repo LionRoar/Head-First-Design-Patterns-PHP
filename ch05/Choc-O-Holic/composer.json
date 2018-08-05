@@ -1,0 +1,9 @@
+{
+  "name": "leo/Choc-O-Holic",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "": "./"
+     }
+   }
+}
