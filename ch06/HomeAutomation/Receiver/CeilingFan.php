@@ -2,7 +2,7 @@
 
 namespace Receiver;
 
-class Light {
+class CeilingFan {
 
     private $name = '' ;
     public function __construct(string $name)
@@ -12,9 +12,9 @@ class Light {
     }
 
     public function on(){
-        echo $this->name . ' Light is ON.' . PHP_EOL;
+        echo $this->name . ' CeilingFan is ON.' . PHP_EOL;
     }
     public function off(){
-        echo $this->name . ' Light is OFF. ' . PHP_EOL;
+        echo $this->name . ' CeilingFan is OFF. ' . PHP_EOL;
     }
 }
