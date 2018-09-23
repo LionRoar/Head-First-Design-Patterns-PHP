@@ -12,40 +12,24 @@ use Commands\GarageDoorCloseCommand;
 use Commands\GarageDoorOpenCommand;
 use Commands\CeilingFanOffCommand;
 use Commands\CeilingFanOnCommand;
+use Commands\CeilingFanHighCommand;
+use Commands\CeilingFanMediumCommand;
 use Commands\StereoOnWithCDCommand;
 use Commands\StereoOffCommand;
 #endregion
 
 $remote = new RemoteControl();
 
-$livingRoomLight = new Light("Living Room");
-$kitchenLight = new Light("Kitchen");
-$ceilingFan = new CeilingFan("Living Room");
-$garageDoor = new GarageDoor();
-$stereo = new Stereo("Living Room");
 
-$livingRoomLightOn = new LightOnCommand($livingRoomLight);
-$livingRoomLightOff = new LightOffCommand($livingRoomLight);
-$kitchenLightOn = new LightOnCommand($kitchenLight);
-$kitchenLightOff = new LightOffCommand($kitchenLight);
+$ceilingFan = new CeilingFan("Living Room");
 
 $ceilingFanOn = new CeilingFanOnCommand($ceilingFan);
 $ceilingFanOff = new CeilingFanOffCommand($ceilingFan);
+$ceilingFanHigh = new CeilingFanHighCommand($ceilingFan);
+$ceilingFanMedium = new CeilingFanMediumCommand($ceilingFan);
 
-$garageOpen = new GarageDoorOpenCommand($garageDoor);
-$garageClose = new GarageDoorCloseCommand($garageDoor);
-
-$stereoWithCDOn = new StereoOnWithCDCommand($stereo);
-$stereoOff = new StereoOffCommand($stereo);
-
-
-
-$remote->setCommand(0, $livingRoomLightOn, $livingRoomLightOff);
-$remote->setCommand(1, $kitchenLightOn, $kitchenLightOff);
-$remote->setCommand(2, $ceilingFanOn, $ceilingFanOff);
-$remote->setCommand(3, $garageOpen , $garageClose);
-$remote->setCommand(4, $stereoWithCDOn, $stereoOff);
-
+$remote->setCommand(0, $ceilingFanHigh, $ceilingFanOff);
+$remote->setCommand(1 , $ceilingFanMedium , $ceilingFanOff);
 
 $remote->onButtonWasPushed(0);
 $remote->offButtonWasPushed(0);
@@ -53,22 +37,5 @@ $remote->offButtonWasPushed(0);
 echo $remote;
 
 $remote->undoButtonWasPushed();
-$remote->offButtonWasPushed(0);
-$remote->onButtonWasPushed(0);
-
-echo $remote;
-
-$remote->undoButtonWasPushed();
-
-// $remote->onButtonWasPushed(1);
-// $remote->offButtonWasPushed(1);
-
-// $remote->onButtonWasPushed(2);
-// $remote->offButtonWasPushed(2);
-
-// $remote->onButtonWasPushed(3);
-// $remote->offButtonWasPushed(3);
-
-// $remote->onButtonWasPushed(4);
-// $remote->offButtonWasPushed(4);
+$remote->onButtonWasPushed(1);
 
