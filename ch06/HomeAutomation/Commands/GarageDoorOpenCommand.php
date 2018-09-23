@@ -14,4 +14,8 @@ class GarageDoorOpenCommand implements Command {
     public function execute() {
         $this->garageDoor->up();
     }
+
+    public function undo(){
+        $this->garageDoor->down();
+    }
 }

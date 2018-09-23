@@ -15,4 +15,8 @@ class GarageDoorCloseCommand implements Command {
     public function execute(){
         $this->garageDoor->down();
     }
+
+    public function undo(){
+        $this->garageDoor->up();
+    }
 }

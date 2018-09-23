@@ -1,7 +1,7 @@
 <?php
 
 require_once './vendor/autoload.php';
-
+#region use
 use \Receiver\Light;
 use \Receiver\GarageDoor;
 use Receiver\CeilingFan;
@@ -14,6 +14,7 @@ use Commands\CeilingFanOffCommand;
 use Commands\CeilingFanOnCommand;
 use Commands\StereoOnWithCDCommand;
 use Commands\StereoOffCommand;
+#endregion
 
 $remote = new RemoteControl();
 
@@ -45,20 +46,29 @@ $remote->setCommand(2, $ceilingFanOn, $ceilingFanOff);
 $remote->setCommand(3, $garageOpen , $garageClose);
 $remote->setCommand(4, $stereoWithCDOn, $stereoOff);
 
-echo $remote;
 
 $remote->onButtonWasPushed(0);
 $remote->offButtonWasPushed(0);
 
-$remote->onButtonWasPushed(1);
-$remote->offButtonWasPushed(1);
+echo $remote;
 
-$remote->onButtonWasPushed(2);
-$remote->offButtonWasPushed(2);
+$remote->undoButtonWasPushed();
+$remote->offButtonWasPushed(0);
+$remote->onButtonWasPushed(0);
 
-$remote->onButtonWasPushed(3);
-$remote->offButtonWasPushed(3);
+echo $remote;
 
-$remote->onButtonWasPushed(4);
-$remote->offButtonWasPushed(4);
+$remote->undoButtonWasPushed();
+
+// $remote->onButtonWasPushed(1);
+// $remote->offButtonWasPushed(1);
+
+// $remote->onButtonWasPushed(2);
+// $remote->offButtonWasPushed(2);
+
+// $remote->onButtonWasPushed(3);
+// $remote->offButtonWasPushed(3);
+
+// $remote->onButtonWasPushed(4);
+// $remote->offButtonWasPushed(4);
 

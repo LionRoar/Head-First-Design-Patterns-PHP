@@ -5,6 +5,7 @@ use Commands\NoCommand;
 class RemoteControl {
     private $onCommands = [];
     private $offCommands = [];
+    private $undoCommand; // track the last command
 
     public function __construct()
     {
@@ -14,6 +15,7 @@ class RemoteControl {
             $this->onCommands[$i] = $NoCommand;
             $this->offCommands[$i] = $NoCommand;
         }
+        $undoCommand = $NoCommand;
     }
 
     public function setCommand(int $slot , Command $on , Command $off){
@@ -23,14 +25,24 @@ class RemoteControl {
 
     public function onButtonWasPushed(int $slot){
         if(isset($this->onCommands[$slot]))
-            $this->onCommands[$slot]->execute();
+            {
+                $this->onCommands[$slot]->execute();
+                $this->undoCommand = $this->onCommands[$slot];
+            }
         else throw new Exception('Slot is empty.');
     }
 
     public function offButtonWasPushed(int $slot){
         if(isset($this->offCommands[$slot]))
+        {
             $this->offCommands[$slot]->execute();
+            $this->undoCommand = $this->offCommands[$slot];
+        }
         else throw new Exception('Slot is empty.');
+    }
+
+    public function undoButtonWasPushed(){
+        $this->undoCommand->undo();
     }
 
     private function class_name($class): string {
@@ -50,6 +62,8 @@ class RemoteControl {
 
         }
 
+        $str .="[undo] " . $this->class_name($this->undoCommand) . "\n"
+        ."--------------------------------\n\n";
         return $str;
     }
 

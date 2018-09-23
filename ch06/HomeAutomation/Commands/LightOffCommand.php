@@ -15,4 +15,8 @@ class LightOffCommand implements Command {
     public function execute(){
         $this->light->off();
     }
+
+    public function undo(){
+        $this->light->on();
+    }
 }

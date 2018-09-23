@@ -5,4 +5,5 @@ class NoCommand implements \Command {
     {
         echo 'No command is set.' . PHP_EOL;
     }
+    public function undo(){}
 }
