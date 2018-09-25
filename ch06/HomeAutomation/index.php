@@ -16,26 +16,30 @@ use Commands\CeilingFanHighCommand;
 use Commands\CeilingFanMediumCommand;
 use Commands\StereoOnWithCDCommand;
 use Commands\StereoOffCommand;
+use Commands\PartyModeCommand;
+use Commands\PartyModeOffCommand;
 #endregion
 
 $remote = new RemoteControl();
 
 
 $ceilingFan = new CeilingFan("Living Room");
+$light = new Light("Living room");
+$stereo = new Stereo("Living room");
 
-$ceilingFanOn = new CeilingFanOnCommand($ceilingFan);
-$ceilingFanOff = new CeilingFanOffCommand($ceilingFan);
-$ceilingFanHigh = new CeilingFanHighCommand($ceilingFan);
-$ceilingFanMedium = new CeilingFanMediumCommand($ceilingFan);
 
-$remote->setCommand(0 , $ceilingFanMedium , $ceilingFanOff);
-$remote->setCommand(1, $ceilingFanHigh, $ceilingFanOff);
+$party = [
+    new CeilingFanOnCommand($ceilingFan),
+    new LightOnCommand($light),
+    new StereoOnWithCDCommand($stereo)
+];
+
+$macroCommand = new PartyModeCommand($party);
+
+$remote->setCommand(0 , $macroCommand , new PartyModeOffCommand($party));
 
 $remote->onButtonWasPushed(0);
-$remote->offButtonWasPushed(0);
 
 echo $remote;
 
 $remote->undoButtonWasPushed();
-$remote->onButtonWasPushed(1);
-

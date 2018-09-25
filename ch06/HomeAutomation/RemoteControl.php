@@ -42,7 +42,7 @@ class RemoteControl {
     }
 
     public function undoButtonWasPushed(){
-        echo "undone -> ";
+        echo "[ <-undo ] : \n";
         $this->undoCommand->undo();
     }
 
