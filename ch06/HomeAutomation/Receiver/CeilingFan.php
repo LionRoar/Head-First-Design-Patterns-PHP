@@ -22,18 +22,21 @@ class CeilingFan {
 
     public function high(){
         $this->speed =self::$HIGH;
-        echo "speed is set to " . $this->speedArr[$this->getSpeed()]
+        echo $this->name . " CeilingFan is On speed is set to " .
+         $this->speedArr[$this->getSpeed()]
          . PHP_EOL;
     }
 
     public function medium(){
         $this->speed = self::$MEDIUM;
-        echo "speed is set to " . $this->speedArr[$this->getSpeed()] . PHP_EOL;
+        echo $this->name . " CeilingFan is On speed is set to " .
+         $this->speedArr[$this->getSpeed()] . PHP_EOL;
     }
 
     public function low(){
         $this->speed =self::$LOW;
-        echo "speed is set to " . $this->speedArr[$this->getSpeed()] . PHP_EOL;
+        echo $this->name . " CeilingFan is On speed is set to " .
+         $this->speedArr[$this->getSpeed()] . PHP_EOL;
     }
 
     public function off(){
@@ -45,5 +48,7 @@ class CeilingFan {
        return $this->speed;
     }
 
-
+    public function on(){
+        $this->low();
+    }
 }

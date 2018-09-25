@@ -28,8 +28,8 @@ $ceilingFanOff = new CeilingFanOffCommand($ceilingFan);
 $ceilingFanHigh = new CeilingFanHighCommand($ceilingFan);
 $ceilingFanMedium = new CeilingFanMediumCommand($ceilingFan);
 
-$remote->setCommand(0, $ceilingFanHigh, $ceilingFanOff);
-$remote->setCommand(1 , $ceilingFanMedium , $ceilingFanOff);
+$remote->setCommand(0 , $ceilingFanMedium , $ceilingFanOff);
+$remote->setCommand(1, $ceilingFanHigh, $ceilingFanOff);
 
 $remote->onButtonWasPushed(0);
 $remote->offButtonWasPushed(0);
