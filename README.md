@@ -46,7 +46,7 @@ Notes index:
 
 Strategy pattern is used when we have multiple algorithms for specific task and the client decides the actual implementation to be used at runtime.
 
-* **PaymentStrategy example is not from the book**
+* **ShoppingCart example is not from the book**
 
 * encapsulate what change and you will have flexible system.
 
