@@ -30,6 +30,8 @@ Notes index:
 * [chapter 4 : Factory method , Abstract factory , Dependency Inversion](#ch4)
 
 * [chapter 5 : Singleton](#ch5)
+
+* [chapter 6 : Command pattern](#ch6)
 ---------------
 
 ## MY-NOTES
@@ -130,3 +132,9 @@ Notes index:
 
 * Singleton violates the _Single Responsibility Principle_
 
+-------------------------------------
+<h2 id="ch6">chapter 6 : Command Pattern</h2>
+
+* Decouples the requester of an action from it's preformer.
+* command patter encapsulate requests as objects .
+* The client will never bother about how and what the commands will actually do.
