@@ -138,3 +138,4 @@ Notes index:
 * Decouples the requester of an action from it's preformer.
 * command patter encapsulate requests as objects .
 * The client will never bother about how and what the commands will actually do.
+* -> **BankTransaction example is not from the book**
