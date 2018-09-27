@@ -42,7 +42,7 @@ Notes index:
 
 > Defines a set of encapsulated algorithms that can be swapped to carry out a specific behavior.
 
-<h4>used when </h4>
+<h4>used when</h4>
 
 Strategy pattern is used when we have multiple algorithms for specific task and the client decides the actual implementation to be used at runtime.
 
@@ -62,6 +62,22 @@ Strategy pattern is used when we have multiple algorithms for specific task and 
 
 ------------------
 <h2 id="ch2"> chapter 2: Observer Pattern</h2>
+
+`aka Pub/Sub`
+
+According to GoF, observer design pattern intent is;
+
+> Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.
+
+<h4>used when</h4>
+
+State changes in one or more objects should trigger behavior in other object
+one-to-many relationship between objects so that when one object changes state all it's dependents are notified and updated automatically.
+
+PHP provides Stander PHP Library (SPL) Observer Pattern through [SplObserver interface](http://php.net/manual/en/class.splobserver.php) and [SplSubject interface](http://php.net/manual/en/class.splsubject.php)
+
+Model-View-Controller (MVC) frameworks also use Observer pattern where _Model_ is the __Subject__ and _Views_ are __observers__ that can register to get notified of any change to the model.
+
 
 * best usage when there's single source of truth one object with many unknown dependents
 
