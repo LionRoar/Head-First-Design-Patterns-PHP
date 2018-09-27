@@ -1,0 +1,9 @@
+{
+  "name": "leo/BankTransaction",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "": "./"
+     }
+   }
+}
