@@ -38,6 +38,16 @@ Notes index:
 
 <h2 id="ch1">chapter 1: Strategy Pattern</h2>
 
+`aka Policy Pattern`
+
+> Defines a set of encapsulated algorithms that can be swapped to carry out a specific behavior.
+
+<h4>used when </h4>
+
+Strategy pattern is used when we have multiple algorithms for specific task and the client decides the actual implementation to be used at runtime.
+
+* **PaymentStrategy example is not from the book**
+
 * encapsulate what change and you will have flexible system.
 
 * separate the code that will be changed.

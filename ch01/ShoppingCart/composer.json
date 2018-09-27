@@ -1,0 +1,9 @@
+{
+  "name": "leo/ShoppingCart",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "": "./"
+     }
+   }
+}
