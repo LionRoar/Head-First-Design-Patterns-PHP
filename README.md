@@ -94,7 +94,12 @@ Model-View-Controller (MVC) frameworks also use Observer pattern where _Model_ i
 -------------------------
 <h2 id="ch3">chapter 3 : Decorator Pattern (Design Eye for The Inheritance Guy)</h2>
 
-* Decorator pattern is better used when we introduced to existing code that we want to extend its functionality
+
+<h4>used when</h4>
+ Decorator pattern is best used when we introduced to existing code that we want to extend its functionality.
+
+since decorators are basically wrappers around objects the PHP I/O classes same as Java uses decorator pattern to add more functionality to the stream to read more [Wrappers in php](http://php.net/manual/en/wrappers.php) and you can even register a custom wrapper (decorators) to add your own filter/wrapper to I/O stream see [the example](https://github.com/LionRoar/Head-First-Design-Patterns-PHP/tree/master/ch03/PHP_IO_DECORATOR)
+
 
 * Decorator reduce the chance of bugs and side effects in legacy code .
 
@@ -106,7 +111,7 @@ Model-View-Controller (MVC) frameworks also use Observer pattern where _Model_ i
 
 * In other words ALWAYS IDENTIFY WHAT CHANGES.
 
-* Again ALWAYS IDENTIFY WHAT GOING TO CHANGE.
+* Again ALWAYS IDENTIFY WHAT's GOING TO CHANGE.
 
 * Decorators must have the same superclass as the object they decorate.
 
