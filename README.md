@@ -1,25 +1,27 @@
 # Head-First-Design-Patterns-PHP
 
-
 ## Head First Design Patterns : A Brain-Friendly Guide book examples code in PHP
-_______________________________________
+
+---
 
 **The original code in the book is in java.**
 
 **I chose this book because it has a really unique way of describing things and making them easy to understand maybe somebody else will find it useful.**
 
------------------
+---
+
 ## Run the code
 
 First you have to generate the auto loader with composer
 
 note: __*do this step for each file that have composer.json*__
 
-*All examples are tested with php7.2*
+ > *All examples are tested with php7.2*
 
-```$ composer dump-autoload ```
+```$ composer dump-autoload```
 
----------------
+---
+
 Notes index:
 * [chapter 1: Strategy Pattern](#ch1)
 
@@ -32,9 +34,12 @@ Notes index:
 * [chapter 5 : Singleton](#ch5)
 
 * [chapter 6 : Command pattern](#ch6)
----------------
+
+---
 
 ## MY-NOTES
+
+---
 
 <h2 id="ch1">chapter 1: Strategy Pattern</h2>
 
@@ -42,7 +47,7 @@ Notes index:
 
 > Defines a set of encapsulated algorithms that can be swapped to carry out a specific behavior.
 
-<h4>used when</h4>
+### Strategy pattern used when
 
 Strategy pattern is used when we have multiple algorithms for specific task and the client decides the actual implementation to be used at runtime.
 
@@ -58,9 +63,9 @@ Strategy pattern is used when we have multiple algorithms for specific task and 
 
 * Think of behaviors as a set of algorithms.
 
-* Composition over inheritance.
+* __Composition over inheritance__.
 
-------------------
+---
 <h2 id="ch2"> chapter 2: Observer Pattern</h2>
 
 `aka Pub/Sub`
@@ -69,7 +74,7 @@ According to GoF, observer design pattern intent is;
 
 > Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.
 
-<h4>used when</h4>
+### Observer used when
 
 State changes in one or more objects should trigger behavior in other object
 one-to-many relationship between objects so that when one object changes state all it's dependents are notified and updated automatically.
@@ -89,16 +94,23 @@ Model-View-Controller (MVC) frameworks also use Observer pattern where _Model_ i
 
 * the Subscribers aka the **Observers** are loosely coupled and the subject no nothing about then except that they are implement the observer interface.
 
-* STRIVE FOR LOOSELY COUPLE DESIGN BETWEEN OBJECT THAT INTERACT.
+* __STRIVE FOR LOOSELY COUPLE DESIGN BETWEEN OBJECT THAT INTERACT.__
 
--------------------------
-<h2 id="ch3">chapter 3 : Decorator Pattern (Design Eye for The Inheritance Guy)</h2>
+---
+
+<h2 id="ch3" > chapter 3 : Decorator Pattern (Design Eye for The Inheritance Guy) </h2>
+
+> Allows for the dynamic wrapping of objects in order to modify their existing responsibilities and behaviors.
+
+Attach additional responsibilities to an object dynamically.
+Provide a flexible alternative to sub-classing for existing functionality.
+
+### Decorator used when
 
 
-<h4>used when</h4>
- Decorator pattern is best used when we introduced to existing code that we want to extend its functionality.
+Decorator pattern is best used when we introduced to existing code that we want to extend its functionality.
 
-since decorators are basically wrappers around objects the PHP I/O classes same as Java uses decorator pattern to add more functionality to the stream to read more [Wrappers in php](http://php.net/manual/en/wrappers.php) and you can even register a custom wrapper (decorators) to add your own filter/wrapper to I/O stream see [the example](https://github.com/LionRoar/Head-First-Design-Patterns-PHP/tree/master/ch03/PHP_IO_DECORATOR)
+since decorators are basically wrappers around objects the PHP I/O classes same as Java uses decorator pattern to add more functionality to the stream to read more [Wrappers in php](http://php.net/manual/en/wrappers.php) and you can even register a custom wrapper (decorators) to add your own filter/wrapper to I/O stream see [this example.](https://github.com/LionRoar/Head-First-Design-Patterns-PHP/tree/master/ch03/PHP_IO_DECORATOR)
 
 
 * Decorator reduce the chance of bugs and side effects in legacy code .
@@ -109,24 +121,25 @@ since decorators are basically wrappers around objects the PHP I/O classes same 
 
 * General speaking design patterns add abstraction level that's add complexity to code that's way we should always use it on the parts that change and overusing it .
 
-* In other words ALWAYS IDENTIFY WHAT CHANGES.
+* In other words __ALWAYS IDENTIFY WHAT CHANGES__.
 
-* Again ALWAYS IDENTIFY WHAT's GOING TO CHANGE.
+* Again __ALWAYS IDENTIFY WHAT's GOING TO CHANGE__.
 
-* Decorators must have the same superclass as the object they decorate.
+* Decorators must have the same super-class as the object they decorate.
 
-* FAVOR COMPOSITION OVER INHERITANCE .
+* __FAVOR COMPOSITION OVER INHERITANCE__ .
 
 * Inheritance makes static behavior but Composition make the behavior dynamic and it can change at runtime .
 
-------------------------------------
+---
+
 <h2 id="ch4">chapter 4 : Factory method , Abstract factory , Dependency Inversion</h2>
 
 * Instantiation is an activity that should not be in public.
 
-* _new_ keyword means === an Implementation (not an Interface).
+* `new` keyword __===__ an Implementation _(not an Interface)_.
 
-* IDENTIFY WHAT CHANGES.
+* __IDENTIFY WHAT CHANGES__.
 
 * Factories (encapsulate) handle details of object creation.
 
@@ -140,11 +153,11 @@ since decorators are basically wrappers around objects the PHP I/O classes same 
 
 * **Strive for guidelines** :
 
-    * No variable should hold reference for a concrete class.
+  * No variable should hold reference for a concrete class.
 
-    * No class should derive form concrete class.
+  * No class should derive form concrete class.
 
-    * No method should override method on base class if so then the base class not relly an abtraction .
+  * No method should override method on base class if so then the base class not really an abstraction .
 
 * **Abstract Factory Pattern** provide an _interface_ for creating families of related objects.
 
@@ -156,14 +169,16 @@ since decorators are basically wrappers around objects the PHP I/O classes same 
 
 * Abstract Factory uses _Objects_ (objects composition).
 
-------------------------------------
+---
+
 <h2 id="ch5">chapter 5 : Singleton</h2>
 
 * The singleton pattern ensures a class has only one instance and provide global access to it .
 
 * Singleton violates the _Single Responsibility Principle_
 
--------------------------------------
+---
+
 <h2 id="ch6">chapter 6 : Command Pattern</h2>
 
 * Decouples the requester of an action from it's preformer.
