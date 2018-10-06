@@ -107,7 +107,6 @@ Provide a flexible alternative to sub-classing for existing functionality.
 
 ### Decorator used when
 
-
 Decorator pattern is best used when we introduced to existing code that we want to extend its functionality.
 
 since decorators are basically wrappers around objects the PHP I/O classes same as Java uses decorator pattern to add more functionality to the stream to read more [Wrappers in php](http://php.net/manual/en/wrappers.php) and you can even register a custom wrapper (decorators) to add your own filter/wrapper to I/O stream see [this example.](https://github.com/LionRoar/Head-First-Design-Patterns-PHP/tree/master/ch03/PHP_IO_DECORATOR)
@@ -133,9 +132,59 @@ since decorators are basically wrappers around objects the PHP I/O classes same 
 
 ---
 
-<h2 id="ch4">chapter 4 : Factory method , Abstract factory , Dependency Inversion</h2>
+<h2 id="ch4">chapter 4 : The Factory pattern </h2>
 
-* Instantiation is an activity that should not be in public.
+`Factory method , Abstract factory , Dependency Inversion ?`
+
+> **The Factory Method** Pattern defines an interface for creating an object, but lets subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.
+
+![Factory-method](/ch04/factory-method.jpg)
+
+```
+    +----------------------+
+    |      PizzaStore      |
+    +----------------------+ <- abstract class defines
+    |                      | abstract factory method `createPizza()`
+    |    createPizza()     | that lets the sub-class decide for it.
+    |                      |
+    |    orderPizza()      |                         <abstract product>
+    |                      |                             +-------+
+    +-----^--------------^-+                             | Pizza |<-------+
+          |              |                               +-^-----+        |
+          |              |                                 |              |
+          |              |                                 |              |
+          |              |                                 |              |
+          |              |                                 |              |
+          |              |                                 |              |
++---------+------+      ++-----------------+      +------------------+    |
+| NYPizzaStore   |      |ChicagoPizzaStore |      |ChicagoCheesePizza|    |
++----------------+      +------------------+      +--------^---------+    |
+|  createPizza() |      |  createPizza()   |               |              |
+|                |      |                  +--<creates>----+              |
++-------------+--+      +------------------+                              |
+<creator>     |              <creator>            +-------------+         |
+              +---------------------<creates>---->|NYCheesePizza|---------+
+                                                  +-------------+
+
+```
+
+### Factory Method Pattern used when
+
+When a client doesn't know what concrete classes it will be required to create at runtime, but just wants to get a class that will do the job.
+
+---
+
+### **Dependency Inversion Principle**
+
+ `Depend upon abstractions. Do not depend upon concrete classes.`
+
+---
+
+* __You should Depend upon abstraction Not upon an implementation .__
+
+* __High-level components should not depend on low-level components they should both depend on abstractions__.
+
+* Instantiation is an activity that should not be in public and can often lead to coupling problems.
 
 * `new` keyword __===__ an Implementation _(not an Interface)_.
 
@@ -145,29 +194,40 @@ since decorators are basically wrappers around objects the PHP I/O classes same 
 
 * **Factory method** relays on inheritance and delegates the object creation to subclasses which implements the factory method and create concrete objects.
 
-* Factory method lets subclasses decide what class instantiate not because it allows rather than it does not know the product .
+* **Factory method** lets subclasses decide what class instantiate not because it allows rather than it does not know the product .
 
-* Depend upon abstraction Not upon an implementation .
 
-* High-level components should not depend on low-level components.
+* **Strive for guidelines** `The following guidelines can help you avoid OO designs that violate the Dependency Inversion Principle` :
 
-* **Strive for guidelines** :
+1. **No** variable should hold reference for a concrete class.
+ `If you use new you’ll be holding a reference to a concrete class.
+  Use a factory to get around that`
 
-  * No variable should hold reference for a concrete class.
+1. **No** class should derive form concrete class. `If you derive from a concrete class, you’re depending on a concrete class. Derive from an abstraction, like an interface or an abstract class`
 
-  * No class should derive form concrete class.
+1. **No** method should override method on base class if so then the base class not really an abstraction. `If you override an implemented method, then your base class wasn’t really an abstraction to start with. Those methods implemented in the base class are meant to be shared by all your subclasses.`
 
-  * No method should override method on base class if so then the base class not really an abstraction .
 
-* **Abstract Factory Pattern** provide an _interface_ for creating families of related objects.
+> **Abstract Factory Pattern** provides an interface for creating families of related or dependent objects without specifying their concrete classes.
 
-* The methods of the abstract factory are often FACTORY METHODS .
+### Abstract Factory Pattern used when
+
+it's used to construct objects such that they can be decoupled from the implementing system.
+The pattern is best utilized when your system has to create multiple families of products or you want to provide a library of products without exposing the implementation details.
+
+* The methods of the **abstract factory** are often _FACTORY METHODS_.
+
+![Abstract-Factory](/ch04/abstract-factory.jpg)
+
+---
+
+* The job of an Abstract Factory is to define an interface for creating a set of products.
 
 * Abstract factory and Factory method are both great in terms of decoupling application from specific implementation.
 
-* Factory method uses _Classes_ (inheritance).
+* **Factory method** uses **_Classes_** (inheritance).
 
-* Abstract Factory uses _Objects_ (objects composition).
+* **Abstract Factory** uses **_Objects_** (objects composition).
 
 ---
 

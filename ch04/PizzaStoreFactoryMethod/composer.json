@@ -1,0 +1,9 @@
+{
+  "name": "leo/PizzaStoreFactoryMethod",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "": "./"
+     }
+   }
+}
