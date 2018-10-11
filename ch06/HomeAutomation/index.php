@@ -20,14 +20,15 @@ use Commands\PartyModeCommand;
 use Commands\PartyModeOffCommand;
 #endregion
 
+//client
 $remote = new RemoteControl();
 
-
+//objects
 $ceilingFan = new CeilingFan("Living Room");
 $light = new Light("Living room");
 $stereo = new Stereo("Living room");
 
-
+//requests as objects
 $party = [
     new CeilingFanOnCommand($ceilingFan),
     new LightOnCommand($light),
