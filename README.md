@@ -45,7 +45,9 @@ Notes index:
 
 `aka Policy Pattern`
 
+
 > Defines a set of encapsulated algorithms that can be swapped to carry out a specific behavior.
+
 
 ### Strategy pattern used when
 
@@ -72,7 +74,9 @@ Strategy pattern is used when we have multiple algorithms for specific task and 
 
 According to GoF, observer design pattern intent is;
 
+
 > Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.
+
 
 ### Observer used when
 
@@ -100,7 +104,9 @@ Model-View-Controller (MVC) frameworks also use Observer pattern where _Model_ i
 
 <h2 id="ch3" > chapter 3 : Decorator Pattern (Design Eye for The Inheritance Guy) </h2>
 
+
 > Allows for the dynamic wrapping of objects in order to modify their existing responsibilities and behaviors.
+
 
 Attach additional responsibilities to an object dynamically.
 Provide a flexible alternative to sub-classing for existing functionality.
@@ -136,11 +142,14 @@ since decorators are basically wrappers around objects the PHP I/O classes same 
 
 `Factory method , Abstract factory , Dependency Inversion ?`
 
+
 > **The Factory Method** Pattern defines an interface for creating an object, but lets subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.
+
 
 ![Factory-method](/ch04/factory-method.jpg)
 
 ```
+
     +----------------------+
     |      PizzaStore      |
     +----------------------+ <- abstract class defines
@@ -207,8 +216,10 @@ When a client doesn't know what concrete classes it will be required to create a
 
 1. **No** method should override method on base class if so then the base class not really an abstraction. `If you override an implemented method, then your base class wasn’t really an abstraction to start with. Those methods implemented in the base class are meant to be shared by all your subclasses.`
 
+---
 
 > **Abstract Factory Pattern** provides an interface for creating families of related or dependent objects without specifying their concrete classes.
+
 
 ### Abstract Factory Pattern used when
 
@@ -233,15 +244,65 @@ The pattern is best utilized when your system has to create multiple families of
 
 <h2 id="ch5">chapter 5 : Singleton</h2>
 
-* The singleton pattern ensures a class has only one instance and provide global access to it .
 
-* Singleton violates the _Single Responsibility Principle_
+> The singleton pattern ensures a class has only one instance and provide global access to it .
+
+
+### Singleton Pattern used when
+
+for anything (object) that unique.
+
+Singletons are used a lot where you need to provide a registry, or something like a thread pool. Logging is also another popular use of Singletons, providing one single access point to an applications log file.
+
+
+* Singleton violates the _Single Responsibility Principle_ [read more on the downsides check this amazing article by **James Sugrue**](https://dzone.com/articles/design-patterns-singleton)
 
 ---
 
 <h2 id="ch6">chapter 6 : Command Pattern</h2>
 
+
+> Encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations.
+
+
+### The command pattern used when
+
+it's used to manage algorithms , relationships and responsibilities between objects.
+1. When history of requests is needed.
+1. You need a callback functionality.
+1. Requests need to handled at variant times or in variant order.
+1. The invoker should be decoupled from the object handling the invocation.
+
 * Decouples the requester of an action from it's preformer.
-* command patter encapsulate requests as objects .
-* The client will never bother about how and what the commands will actually do.
-* -> **BankTransaction example is not from the book**
+* command pattern encapsulate requests as objects .
+* The **client** will never bother about the `how` and the `what` commands will actually do.
+* **The Bank Transaction example is not from the book**
+* The command pattern forwards the request to a **specific** moudle.
+
+
+---
+
+<h2 id="ch7">The Adapter and The Facade Patterns</h2>
+
+`aka Wrapper Pattern`
+
+> **The Adapter Pattern** converts the interface of a class into another interface the client expects. Adapters lets classes work together that couldn't otherwise because of incompatible interfaces.
+
+### Adapter Pattern used when
+
+When a class that you need to use doesn't meet the requirements of an interface.
+Exposed to legacy code may encounter an old interface needs to be converted to match new client code *Adapters* allows programming components to work together that otherwise wouldn't because of mismatched interfaces.
+
+Adapter pattern motivation is that we can reuse existing software if we can modify the interface.
+
+#### There are two kinds of Adapters
+
+1. **Class Adapter**
+    *uses `inheritance`* [multiple inheritance] *not supported in *java* nor *php*.
+    can only wrap a class It cannot wrap an interface since by definition it must derive from some base class.
+
+1. **Object Adapter**
+    *uses `Object composition`* composition and can wrap classes or interfaces, or both. It can do this since it contains, as a private, encapsulated member,the class or interface object instance it wraps.
+
+> "Because inheritance exposes a subclass to details of its parent's implementation, it's often said that 'inheritance breaks encapsulation'". (Gang of Four 1995:19)
+

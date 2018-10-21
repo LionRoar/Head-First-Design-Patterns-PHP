@@ -20,15 +20,17 @@ use Commands\PartyModeCommand;
 use Commands\PartyModeOffCommand;
 #endregion
 
-//client
+//index.php [the client]
+
+//the remote [the invoker] (holds commands to execute a request by calling execute() )
 $remote = new RemoteControl();
 
-//objects
+//Receivers (have no knowledge of what to do to carry out request)
 $ceilingFan = new CeilingFan("Living Room");
 $light = new Light("Living room");
 $stereo = new Stereo("Living room");
 
-//requests as objects
+//requests as objects [commands] (sets a receiver for a command)
 $party = [
     new CeilingFanOnCommand($ceilingFan),
     new LightOnCommand($light),

@@ -4,7 +4,9 @@
  * Singleton class
  */
 class ChocolateBoiler {
+    //Private static variable to store the only instance of the class.
     private static $instance;
+    //props
     private $empty;
     private $boiled;
 
@@ -16,6 +18,11 @@ class ChocolateBoiler {
         $this->boiled = false;
     }
 
+    /**
+     * Public static method that returns the instance of the class,
+     *
+     * @return ChocolateBoiler
+     */
     public static function getInstance() : ChocolateBoiler {
         if( self::$instance == null ){
             self::$instance = new ChocolateBoiler();
