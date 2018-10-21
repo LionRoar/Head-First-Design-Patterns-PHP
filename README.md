@@ -305,4 +305,3 @@ Adapter pattern motivation is that we can reuse existing software if we can modi
     *uses `Object composition`* composition and can wrap classes or interfaces, or both. It can do this since it contains, as a private, encapsulated member,the class or interface object instance it wraps.
 
 > "Because inheritance exposes a subclass to details of its parent's implementation, it's often said that 'inheritance breaks encapsulation'". (Gang of Four 1995:19)
-
