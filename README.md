@@ -35,6 +35,8 @@ Notes index:
 
 * [chapter 6 : Command pattern](#ch6)
 
+* [chapter 7 : The Adapter and The Facade Patterns](#ch7)
+
 ---
 
 ## MY-NOTES
