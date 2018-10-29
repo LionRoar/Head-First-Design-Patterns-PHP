@@ -284,6 +284,8 @@ it's used to manage algorithms , relationships and responsibilities between obje
 
 <h2 id="ch7">The Adapter and The Facade Patterns</h2>
 
+### Adapter Pattern
+
 `aka Wrapper Pattern`
 
 > **The Adapter Pattern** converts the interface of a class into another interface the client expects. Adapters lets classes work together that couldn't otherwise because of incompatible interfaces.
@@ -305,3 +307,74 @@ Adapter pattern motivation is that we can reuse existing software if we can modi
     *uses `Object composition`* composition and can wrap classes or interfaces, or both. It can do this since it contains, as a private, encapsulated member,the class or interface object instance it wraps.
 
 > "Because inheritance exposes a subclass to details of its parent's implementation, it's often said that 'inheritance breaks encapsulation'". (Gang of Four 1995:19)
+
+* DON'T MIX _DECORATORS_ WITH _ADAPTERS_ THEY'RE BOTH WRAPPERS BUT
+_DECORATORS_ ADD NEW RESPONSIBILITIES WHILE _ADAPTERS_ CONVERT AN INTERFACE.
+
+---
+
+### Facade Pattern
+
+> The Facade Pattern provides a unified interface to a set of interfaces in subsystem. Facade defines a higher-level interface that make the subsystem easier to use.
+
+### Facade used when
+
+    when you want to simplify a complex system.
+
+* Facades don't encapsulate .
+* Facade Pattern allows to avoid tight coupling between client and subsystem.
+
+* **Design Principle**
+    Principle of Least Knowledge - talk only to your immediate friends.
+    `{Least Knowledge principle} aka Law of Demeter`
+
+Least Knowledge principle guidelines :
+* take any object.
+* from any method on that object we should only instantiate :
+  * The object itself.
+  * Objects passed as a parameter to the method.
+  * Any object the method creates or instantiate.
+  * Any components of the object *by instance variable **has-A-relationship***.
+  * NOT TO CALL METHODS ON OBJECTS THAT WERE RETURNED FROM ANOTHER METHODS!.
+
+
+```PHP
+
+$Q  = "What’s the harm in calling the method of an object we get back from another call?"
+
+$A  = "if we were to do that, then we’d be making a request of another object’s subpart (and increasing the number of objects we directly know). In such cases, the principle forces us to ask the object to make the request for us; that way we don’t have to know about its component objects (and we keep our circle of friends small)."
+
+```
+
+Without the principle
+
+```PHP
+
+public function getTemp() : float {
+    $thermometer = $this->station->getThermometer(); //we get thermometer OBJECT for the station then we call get temperature
+    return $thermometer->getTemperature();
+}
+
+```
+
+With Least Knowledge principle
+
+```PHP
+
+public function getTemp() : float {
+    //we add a method to the station class with that we reduce the number of classes we're dependent on
+    return $this->station->getTemperature();
+}
+
+```
+
+### Wrappers
+
+PATTERN  | INTENT
+---------|---------
+Decorator|Doesn't alter the interface but adds responsibilities.
+Adapter  |converts one interface to another.
+Facade   |Makes an interface simpler.
+
+
+---

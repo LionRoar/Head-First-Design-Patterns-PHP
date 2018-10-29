@@ -1,0 +1,9 @@
+{
+  "name": "leo/HomeTheaterFacade",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "": "./"
+     }
+   }
+}
