@@ -55,7 +55,6 @@ Notes index:
 
 Strategy pattern is used when we have multiple algorithms for specific task and the client decides the actual implementation to be used at runtime.
 
-* **ShoppingCart example is not from the book**
 
 * encapsulate what change and you will have flexible system.
 
@@ -69,7 +68,10 @@ Strategy pattern is used when we have multiple algorithms for specific task and 
 
 * __Composition over inheritance__.
 
+* **ShoppingCart example is not from the book**
+
 ---
+
 <h2 id="ch2"> chapter 2: Observer Pattern</h2>
 
 `aka Pub/Sub`
@@ -101,6 +103,7 @@ Model-View-Controller (MVC) frameworks also use Observer pattern where _Model_ i
 * the Subscribers aka the **Observers** are loosely coupled and the subject no nothing about then except that they are implement the observer interface.
 
 * __STRIVE FOR LOOSELY COUPLE DESIGN BETWEEN OBJECT THAT INTERACT.__
+
 
 ---
 
@@ -150,7 +153,7 @@ since decorators are basically wrappers around objects the PHP I/O classes same 
 
 ![Factory-method](/ch04/factory-method.jpg)
 
-```
+```css
 
     +----------------------+
     |      PizzaStore      |
@@ -386,5 +389,78 @@ Decorator|Doesn't alter the interface but adds responsibilities.
 Adapter  |converts one interface to another.
 Facade   |Makes an interface simpler.
 
+
+---
+
+<h2 id="ch8">Template Method Pattern [Encapsulating Algorithms] </h2>
+
+### Template Method Pattern
+
+`aka Hollywood pattern`
+
+> The Template Method Pattern defines the skeleton of an algorithm in a method, deferring some steps to subclasses. Template Method lets subclasses redefine certain steps of an algorithm without changing the algorithm's structure.
+
+
+
+ It's all about creating `Template` form an `Algorithm`
+
+```PHP
+
+$q =  "What's a `Template` ?"
+
+$a = "it's just a method that defines an algorithm as steps"
+
+```
+
+
+#### Hooked on Template
+
+A **Hook** is a method that declared in the abstract class but given an empty on default implementation ; giving the subclass the ability to `hook into` _override_ the algorithm on various points.
+
+When to use what ?
+`abstract methods` _VS_`hooks.`
+use __abstract methods__ when the implementation is a __MUST__ in the subclass.
+for the __hooks__ it's optional for the subclass.
+
+
+### Hollywood Principle
+
+> Don't call us, we'll call you.
+
+* **Hollywood principle** helps prevents `Dependency rot`. huh ..what!?
+
+* **Dependency rot:** it's bad and a mess !
+it's when high-level components depending on low-level components depending on high-level components ...and so on.
+it's hard to understand system with such a flaw.
+
+
+* **Hollywood principle :** is a `Technique` for building frameworks or components so that low-level components can be `Hooked` into the computation without creating dependency between the low-level components and high-level components.
+
+* **Hollywood principle** guides us to put `decision-making` in high-level modules that can decide how and when to call low level modules.
+
+* **The Factory Method is a specialization of Template Method**
+
+#### Who does what ?
+
+Pattern         | Description
+----------------|-------------
+Template Method | Subclasses decide how to implement steps in an algorithm.
+Strategy        | Encapsulate interchangeable behavior and use delegation to decide which behavior to use.
+Factory Method  | Subclasses decide which concrete classes to create.
+
+#### Bounce
+
+another great example from [journaldev](https://www.journaldev.com/1763/template-method-design-pattern-in-java)
+
+to understand the method template pattern
+
+> suppose we want to provide an algorithm to build a house. The steps need to be performed to build a house are – building foundation, building pillars, building walls and windows. The important point is that the **we can’t change the order of execution** because we can’t build windows before building the foundation. So in this case we can create a template method that will use different methods to build the house.
+
+
+### Template Method Pattern used when
+
+* Template Methods are frequently used in general purpose frameworks or libraries that will be used by other developer.
+* When the behavior of an algorithm can vary but not the order.
+* When there's a code duplication *this is always gives a clear sign of bad design decisions and there's always room for improvement*.
 
 ---
