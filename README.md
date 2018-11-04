@@ -37,15 +37,19 @@ Notes index:
 
 * [chapter 7 : The Adapter and The Facade Patterns](#ch7)
 
+* [chapter 8 : Template Method Pattern [Encapsulating Algorithms]](#ch8)
+
 ---
 
 ## MY-NOTES
 
 ---
 
-<h2 id="ch1">chapter 1: Strategy Pattern</h2>
+
+<h1 id="ch1">chapter 1: Strategy Pattern</h1>
 
 `aka Policy Pattern`
+
 
 
 > Defines a set of encapsulated algorithms that can be swapped to carry out a specific behavior.
@@ -72,9 +76,11 @@ Strategy pattern is used when we have multiple algorithms for specific task and 
 
 ---
 
-<h2 id="ch2"> chapter 2: Observer Pattern</h2>
+
+<h1 id="ch2"> chapter 2: Observer Pattern</h1>
 
 `aka Pub/Sub`
+
 
 According to GoF, observer design pattern intent is;
 
@@ -107,7 +113,8 @@ Model-View-Controller (MVC) frameworks also use Observer pattern where _Model_ i
 
 ---
 
-<h2 id="ch3" > chapter 3 : Decorator Pattern (Design Eye for The Inheritance Guy) </h2>
+
+<h1 id="ch3" > chapter 3 : Decorator Pattern (Design Eye for The Inheritance Guy) </h1>
 
 
 > Allows for the dynamic wrapping of objects in order to modify their existing responsibilities and behaviors.
@@ -143,12 +150,14 @@ since decorators are basically wrappers around objects the PHP I/O classes same 
 
 ---
 
-<h2 id="ch4">chapter 4 : The Factory pattern </h2>
+
+<h1 id="ch4">chapter 4 : The Factory pattern </h1>
 
 `Factory method , Abstract factory , Dependency Inversion ?`
 
 
-> **The Factory Method** Pattern defines an interface for creating an object, but lets subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.
+## The Factory Method Pattern
+> The Factory Method Patter defines an interface for creating an object, but lets subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.
 
 
 ![Factory-method](/ch04/factory-method.jpg)
@@ -223,7 +232,9 @@ When a client doesn't know what concrete classes it will be required to create a
 
 ---
 
-> **Abstract Factory Pattern** provides an interface for creating families of related or dependent objects without specifying their concrete classes.
+## Abstract Factory Pattern
+
+> Abstract Factory Pattern provides an interface for creating families of related or dependent objects without specifying their concrete classes.
 
 
 ### Abstract Factory Pattern used when
@@ -247,7 +258,8 @@ The pattern is best utilized when your system has to create multiple families of
 
 ---
 
-<h2 id="ch5">chapter 5 : Singleton</h2>
+
+<h1 id="ch5">chapter 5 : Singleton</h1>
 
 
 > The singleton pattern ensures a class has only one instance and provide global access to it .
@@ -264,7 +276,8 @@ Singletons are used a lot where you need to provide a registry, or something lik
 
 ---
 
-<h2 id="ch6">chapter 6 : Command Pattern</h2>
+
+<h1 id="ch6">chapter 6 : Command Pattern</h1>
 
 
 > Encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations.
@@ -287,9 +300,11 @@ it's used to manage algorithms , relationships and responsibilities between obje
 
 ---
 
-<h2 id="ch7">The Adapter and The Facade Patterns</h2>
 
-### Adapter Pattern
+<h1 id="ch7">The Adapter and The Facade Patterns</h1>
+
+
+## Adapter Pattern
 
 `aka Wrapper Pattern`
 
@@ -318,7 +333,7 @@ _DECORATORS_ ADD NEW RESPONSIBILITIES WHILE _ADAPTERS_ CONVERT AN INTERFACE.
 
 ---
 
-### Facade Pattern
+## Facade Pattern
 
 > The Facade Pattern provides a unified interface to a set of interfaces in subsystem. Facade defines a higher-level interface that make the subsystem easier to use.
 
@@ -392,7 +407,9 @@ Facade   |Makes an interface simpler.
 
 ---
 
-<h2 id="ch8">Template Method Pattern [Encapsulating Algorithms] </h2>
+
+<h1 id="ch8">Template Method Pattern [Encapsulating Algorithms] </h1>
+
 
 ### Template Method Pattern
 
@@ -413,7 +430,7 @@ $a = "it's just a method that defines an algorithm as steps"
 ```
 
 
-#### Hooked on Template
+### Hooked on Template
 
 A **Hook** is a method that declared in the abstract class but given an empty on default implementation ; giving the subclass the ability to `hook into` _override_ the algorithm on various points.
 
@@ -440,7 +457,7 @@ it's hard to understand system with such a flaw.
 
 * **The Factory Method is a specialization of Template Method**
 
-#### Who does what ?
+### Who does what ?
 
 Pattern         | Description
 ----------------|-------------
@@ -462,5 +479,6 @@ to understand the method template pattern
 * Template Methods are frequently used in general purpose frameworks or libraries that will be used by other developer.
 * When the behavior of an algorithm can vary but not the order.
 * When there's a code duplication *this is always gives a clear sign of bad design decisions and there's always room for improvement*.
+
 
 ---
