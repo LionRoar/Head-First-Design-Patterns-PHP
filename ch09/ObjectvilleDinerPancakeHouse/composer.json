@@ -1,0 +1,9 @@
+{
+  "name": "leo/ObjectvilleDinerPancakeHouse",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "": "./"
+     }
+   }
+}

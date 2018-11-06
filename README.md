@@ -22,10 +22,11 @@ note: __*do this step for each file that have composer.json*__
 
 ---
 
-Notes index:
-* [chapter 1: Strategy Pattern](#ch1)
+## Notes index:
 
-* [chapter 2: Observer Pattern](#ch2)
+* [chapter 1 : Strategy Pattern](#ch1)
+
+* [chapter 2 : Observer Pattern](#ch2)
 
 * [chapter 3 : Decorator Pattern (Design Eye for The Inheritance Guy)](#ch3)
 
@@ -39,9 +40,12 @@ Notes index:
 
 * [chapter 8 : Template Method Pattern [Encapsulating Algorithms]](#ch8)
 
+* [chapter 9 : The Iterator and Composite Patterns **Well-Managed Collection**](#ch9)
+
+
 ---
 
-## MY-NOTES
+# MY-NOTES
 
 ---
 
@@ -482,3 +486,19 @@ to understand the method template pattern
 
 
 ---
+
+
+<h1 id="ch9">The Iterator and Composite Patterns [Well-Managed Collection]</h1>
+
+### Example implementations notes:
+
+Unlike java , PHP Array can be treated as an array, list, hash-table, stack, queue, dictionary, collection,...and probably more.
+
+For the skae of **Objectville**` example *this example uses both Java Array and ArrayList*:
+* I will use [SplFixedArray](http://php.net/manual/en/class.splfixedarray.php) to mimic static arrays.
+* We will ignore the fact that both normal php `array` and `SplFixedArray` implement the [Traverable *interface*](http://php.net/manual/en/class.traversable.php)
+and that both can be easily traversed using a [`foreach`](http://php.net/manual/en/control-structures.foreach.php).
+* You cannot implement Traversable interface it's an abstract base interface, you can't implement it alone but you can implement interfaces called [`Iterator`](http://php.net/manual/en/class.iterator.php) or [`IteratorAggregate`](http://php.net/manual/en/class.iteratoraggregate.php) By implementing either of these interfaces you make a class `iterable` and `traversable` using `foreach`
+* For the sake of this example we're going to make our own interface and we call it `IteratorInterface`.
+
+
