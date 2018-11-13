@@ -4,7 +4,7 @@ class Waitress {
     private $pancakeHouse;
     private $diner;
 
-    public function __construct(PancakeHouseMenu $pancake, DinerMenu $diner){
+    public function __construct(Menu $pancake, Menu $diner){
         $this->pancakeHouse =$pancake;
         $this->diner = $diner;
     }
@@ -12,7 +12,7 @@ class Waitress {
     public function printMenu(){
         $pancakeIterator = $this->pancakeHouse->createIterator();
         $dinerIterator = $this->diner->createIterator();
-        echo "MENU\n----\nBREAKFAST\n";
+        echo "MENU\n----\n\nBREAKFAST\n";
         $this->printIteratorMenu($pancakeIterator);
         echo "\nLUNCH\n";
         $this->printIteratorMenu($dinerIterator);

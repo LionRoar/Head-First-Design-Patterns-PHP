@@ -490,15 +490,24 @@ to understand the method template pattern
 
 <h1 id="ch9">The Iterator and Composite Patterns [Well-Managed Collection]</h1>
 
-### Example implementations notes:
+> The Iterator Pattern provides a way to access the elements of an aggregate object sequentially without exposing its underlying representation.
+
+
+![iterator](/ch09/iterator.png)
+
+### Example implementations notes
 
 Unlike java , PHP Array can be treated as an array, list, hash-table, stack, queue, dictionary, collection,...and probably more.
 
-For the skae of **Objectville**` example *this example uses both Java Array and ArrayList*:
-* I will use [SplFixedArray](http://php.net/manual/en/class.splfixedarray.php) to mimic static arrays.
-* We will ignore the fact that both normal php `array` and `SplFixedArray` implement the [Traverable *interface*](http://php.net/manual/en/class.traversable.php)
+The original example uses both Java Array and ArrayList.
+
+For the sake of **`Objectville`** example :
+* I will use [SplFixedArray](http://php.net/manual/en/class.splfixedarray.php) to mimic (static)fixed size arrays.
+* We will ignore the fact that both **normal php `array`** and **`SplFixedArray`** implement the [Traversable *interface*](http://php.net/manual/en/class.traversable.php)
 and that both can be easily traversed using a [`foreach`](http://php.net/manual/en/control-structures.foreach.php).
-* You cannot implement Traversable interface it's an abstract base interface, you can't implement it alone but you can implement interfaces called [`Iterator`](http://php.net/manual/en/class.iterator.php) or [`IteratorAggregate`](http://php.net/manual/en/class.iteratoraggregate.php) By implementing either of these interfaces you make a class `iterable` and `traversable` using `foreach`
+* You cannot implement `Traversable` interface it's an abstract base interface, you can't implement it alone but you can implement interfaces called [`Iterator`](http://php.net/manual/en/class.iterator.php) or [`IteratorAggregate`](http://php.net/manual/en/class.iteratoraggregate.php) By implementing either of these interfaces you make a class `iterable` and `traversable` using `foreach`
 * For the sake of this example we're going to make our own interface and we call it `IteratorInterface`.
+
+
 
 

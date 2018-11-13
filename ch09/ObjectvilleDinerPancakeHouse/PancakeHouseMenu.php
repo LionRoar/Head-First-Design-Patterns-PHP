@@ -1,6 +1,6 @@
 <?php
 
-class PancakeHouseMenu {
+class PancakeHouseMenu implements Menu {
 
     private $menuItems = array(); // arrayList ;)
 
@@ -41,7 +41,7 @@ class PancakeHouseMenu {
     }
 
 
-    public function createIterator() {
+    public function createIterator() : IteratorInterface {
         return new PancakeHouseMenuIterator($this->menuItems);
     }
 }

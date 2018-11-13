@@ -1,6 +1,6 @@
 <?php
 
-class DinerMenu {
+class DinerMenu implements Menu {
 
     const MAX_ITEMS = 6;
 
@@ -48,7 +48,7 @@ class DinerMenu {
         return $this->fixedArray;
     }
 
-    public function createIterator() {
+    public function createIterator() : IteratorInterface {
         return new DinerMenuIterator($this->fixedArray);
     }
 }
