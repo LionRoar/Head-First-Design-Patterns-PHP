@@ -7,6 +7,8 @@ class DinerMenu implements Menu {
     private $numberOfItems = 0;
     private $fixedArray;
 
+    private $name = "Lunch";
+
     public function __construct() {
 
         $this->fixedArray = new SplFixedArray(self::MAX_ITEMS);
@@ -44,11 +46,15 @@ class DinerMenu implements Menu {
         $this->fixedArray[$this->numberOfItems++] = $item;
     }
 
-    public function getMenuItems() : SplFixedArray {
-        return $this->fixedArray;
-    }
+    // public function getMenuItems() : SplFixedArray {
+    //     return $this->fixedArray;
+    // }
 
     public function createIterator() : IteratorInterface {
         return new DinerMenuIterator($this->fixedArray);
+    }
+
+    public function getName() : string {
+        return $this->name;
     }
 }

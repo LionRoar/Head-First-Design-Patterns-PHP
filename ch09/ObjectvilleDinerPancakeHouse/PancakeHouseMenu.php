@@ -3,6 +3,7 @@
 class PancakeHouseMenu implements Menu {
 
     private $menuItems = array(); // arrayList ;)
+    private $name = "Breakfast";
 
     public function __construct() {
 
@@ -36,12 +37,16 @@ class PancakeHouseMenu implements Menu {
         array_push($this->menuItems, $item);
     }
 
-    public function getMenuItems() : array {
-        return $this->menuItems;
-    }
+    // public function getMenuItems() : array {
+    //     return $this->menuItems;
+    // }
 
 
     public function createIterator() : IteratorInterface {
         return new PancakeHouseMenuIterator($this->menuItems);
+    }
+
+    public function getName() : string {
+        return $this->name;
     }
 }
