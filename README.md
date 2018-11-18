@@ -490,16 +490,34 @@ to understand the method template pattern
 
 <h1 id="ch9">The Iterator and Composite Patterns [Well-Managed Collection]</h1>
 
+## Iterator Pattern
+
 > The Iterator Pattern provides a way to access the elements of an aggregate object sequentially without exposing its underlying representation.
+
+* Iterator provide a standard way to traverse through a group of Objects.
 
 
 ![iterator](/ch09/iterator.png)
 
-### Example implementations notes
+* The **Aggregate** defines an interface for the creation of the Iterator object.
+* The **ConcreteAggregate** implements this interface, and returns an instance of the ConcreteIterator.
+* The **Iterator** defines the interface for access and traversal of the elements, and the **ConcreteIterator** implements this interface while keeping track of the current position in the traversal of the Aggregate.
+
+### Iterator used when
+
+* When you need access to elements in a set without access to the entire representation.
+* When you need a uniform traversal interface, and multiple traversals may happen across elements.
+
+
+---
+
+### implementations notes
 
 Unlike java , PHP Array can be treated as an array, list, hash-table, stack, queue, dictionary, collection,...and probably more.
 
 The original example uses both Java Array and ArrayList.
+
+#### PHP implementation specifics
 
 For the sake of **`Objectville`** example :
 * I will use [SplFixedArray](http://php.net/manual/en/class.splfixedarray.php) to mimic (static)fixed size arrays.
@@ -508,6 +526,16 @@ and that both can be easily traversed using a [`foreach`](http://php.net/manual/
 * You cannot implement `Traversable` interface it's an abstract base interface, you can't implement it alone but you can implement interfaces called [`Iterator`](http://php.net/manual/en/class.iterator.php) or [`IteratorAggregate`](http://php.net/manual/en/class.iteratoraggregate.php) By implementing either of these interfaces you make a class `iterable` and `traversable` using `foreach`
 * For the sake of this example we're going to make our own interface and we call it `IteratorInterface`.
 
+---
+
+### Single Responsibility Principle (**S**OLID)
+
+> A Class should have only one reason to change.
+
+Separating responsibilities in design is one of the most difficult things to do, to succeed is to be diligent in examining your designs and watchout for signals that a class is changing in more than one way as your system grows.
+
+
+---
 
 
 
