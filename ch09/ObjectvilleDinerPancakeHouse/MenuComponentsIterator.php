@@ -1,6 +1,6 @@
 <?php
 
-class PancakeHouseMenuIterator implements IteratorInterface {
+class MenuComponentsIterator implements IteratorInterface {
     private $menuItems;
     private $index = 0;
 

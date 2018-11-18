@@ -22,7 +22,7 @@ note: __*do this step for each file that have composer.json*__
 
 ---
 
-## Notes index:
+## Notes index
 
 * [chapter 1 : Strategy Pattern](#ch1)
 
@@ -59,7 +59,7 @@ note: __*do this step for each file that have composer.json*__
 > Defines a set of encapsulated algorithms that can be swapped to carry out a specific behavior.
 
 
-### Strategy pattern used when
+## Strategy pattern used when
 
 Strategy pattern is used when we have multiple algorithms for specific task and the client decides the actual implementation to be used at runtime.
 
@@ -496,6 +496,16 @@ to understand the method template pattern
 
 * Iterator provide a standard way to traverse through a group of Objects.
 
+### checkout iterator branch
+
+for iterator code
+
+```bash
+
+$ git checkout iteratorPattern
+Switched to branch 'iteratorPattern'
+
+ ```
 
 ![iterator](/ch09/iterator.png)
 
@@ -538,4 +548,16 @@ Separating responsibilities in design is one of the most difficult things to do,
 ---
 
 
+## The Composite Pattern
 
+> The Composite Pattern allows you to compose objects into tree structures to represent part-whole hierarchies. Composite lets clients treat individual objects and compositions of objects uniformly.
+
+## Is `Composite Pattern` really flow the single responsibility principle
+
+The Composite Pattern
+
+1. manages a hierarchy
+
+1. performs operations related to Menus
+
+that's __2__ responsibilities.

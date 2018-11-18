@@ -1,6 +1,6 @@
 <?php
 
-class MenuItem {
+class MenuItem extends MenuComponent {
     private $name;
     private $description;
     private $vegetarian;
@@ -17,19 +17,27 @@ class MenuItem {
         $this->price = $price;
     }
 
-    public function getName(){
+    public function getName() : string {
         return $this->name;
     }
 
-    public function getDescription(){
+    public function getDescription() : string{
         return $this->description;
     }
 
-    public function getPrice(){
+    public function getPrice() : float {
         return $this->price;
     }
 
-    public function isVegetarian(){
+    public function isVegetarian() : bool {
         return $this->vegetarian;
+    }
+
+    public function print(){
+        echo " ". $this->getName();
+        if($this->isVegetarian())
+            echo "(v)";
+        echo ", " .$this->getPrice() . PHP_EOL;
+        echo "   -- " . $this->getDescription() . PHP_EOL;
     }
 }
