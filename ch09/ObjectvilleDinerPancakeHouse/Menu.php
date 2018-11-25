@@ -4,6 +4,9 @@ class Menu extends MenuComponent  {
     private $menuComponents = array();
     private $name;
     private $description;
+
+    private $compositeIterator = NULL;
+
     public function __construct(string $name , string $description){
         $this->name = $name;
         $this->description = $description;
@@ -33,5 +36,14 @@ class Menu extends MenuComponent  {
             $menuComponent =  $iterator->next();
             $menuComponent->print();
         }
+    }
+
+    public function createIterator() : IteratorInterface {
+        if(is_null($this->compositeIterator))
+            $this->compositeIterator = new CompositeIterator(
+                new MenuComponentsIterator($this->menuComponents)
+            );
+        return $this->compositeIterator;
+
     }
 }

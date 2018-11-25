@@ -74,6 +74,6 @@ $cafeMenu->add(new MenuItem("Burrito",
 
 //call the waitress give her the hierarchy of menus for her to print
 $waitress = new Waitress($allMenus);
-$waitress->printMenu();
-
+//$waitress->printMenu();
+$waitress->printVegetarianMenu();
 

@@ -552,7 +552,7 @@ Separating responsibilities in design is one of the most difficult things to do,
 
 > The Composite Pattern allows you to compose objects into tree structures to represent part-whole hierarchies. Composite lets clients treat individual objects and compositions of objects uniformly.
 
-## Is `Composite Pattern` really flow the single responsibility principle
+## Is `Composite Pattern` really follow the single responsibility principle
 
 The Composite Pattern
 
@@ -561,3 +561,14 @@ The Composite Pattern
 1. performs operations related to Menus
 
 that's __2__ responsibilities.
+
+The Composite Pattern trades **Single Responsibility Principle** for *transparency*
+
+Transparency: Since the Composite interface contain child management operations and the leaf _(items non iterable)_ operations The client can treat both the composites and leaf nodes uniformly, both are _transparent_ to the client.
+
+Having both operations in the Component class will cause a bit loss of *safety* because the client might try to do Composite related operation e.g _add_ to a leaf _item_ which is invalid.
+
+
+## Composite Pattern used when
+
+* when you have collection of objects with whole-part relationships and you want to be able to treat those objects uniformly.

@@ -3,28 +3,29 @@
 abstract class MenuComponent {
     // hierarchy operations
     public function add(MenuComponent $menuComponent){
-        throw new Exception("Unsupported Operation");
+        throw new UnsupportedException();
     }
     public function remove(MenuComponent $menuComponent){
-        throw new Exception("Unsupported Operation");
+        throw new UnsupportedException();
     }
     public function getChild(int $i) : MenuComponent {
-        throw new Exception("Unsupported Operation");
+        throw new UnsupportedException();
     }
     // operations related to menus / menu items
     public function getName() : string {
-        throw new Exception("Unsupported Operation");
+        throw new UnsupportedException();
     }
     public function getDescription() : string {
-        throw new Exception("Unsupported Operation");
+        throw new UnsupportedException();
     }
     public function getPrice() : float {
-        throw new Exception("Unsupported Operation");
+        throw new UnsupportedException();
     }
     public function isVegetarian() : bool {
-        throw new Exception("Unsupported Operation");
+        throw new UnsupportedException();
     }
     public function print(){
-        throw new Exception("Unsupported Operation");
+        throw new UnsupportedException();
     }
+    abstract public function createIterator() : IteratorInterface ;
 }
