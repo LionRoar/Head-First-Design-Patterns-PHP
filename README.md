@@ -494,11 +494,9 @@ to understand the method template pattern
 
 > The Iterator Pattern provides a way to access the elements of an aggregate object sequentially without exposing its underlying representation.
 
-* Iterator provide a standard way to traverse through a group of Objects.
-
-### checkout iterator branch
-
-for iterator code
+* Iterator provide a standard way *common interface* to traverse through a group of Objects *aggregate*.
+* Iterator allows access to an aggregate's elements without exposing its internal structure.
+### checkout iterator branch for iterator implementation
 
 ```bash
 
@@ -544,6 +542,7 @@ and that both can be easily traversed using a [`foreach`](http://php.net/manual/
 
 Separating responsibilities in design is one of the most difficult things to do, to succeed is to be diligent in examining your designs and watchout for signals that a class is changing in more than one way as your system grows.
 
+`We should strive to assign only one responsibility to each class.`
 
 ---
 
@@ -551,6 +550,14 @@ Separating responsibilities in design is one of the most difficult things to do,
 ## The Composite Pattern
 
 > The Composite Pattern allows you to compose objects into tree structures to represent part-whole hierarchies. Composite lets clients treat individual objects and compositions of objects uniformly.
+
+* Composite pattern provides a structure to hold both individual objects an composites.
+
+* A **Component** is any object in a **Composite structure**.
+
+* **Components** may be other *composites* or *leaf* nodes.
+
+* Remember to balance `transparency` and `safety`.
 
 ## Is `Composite Pattern` really follow the single responsibility principle
 
@@ -572,3 +579,26 @@ Having both operations in the Component class will cause a bit loss of *safety* 
 ## Composite Pattern used when
 
 * when you have collection of objects with whole-part relationships and you want to be able to treat those objects uniformly.
+
+### `what's whole-part relationships ?`
+
+also known as `aggregation relationship` it's a relationship between two classes in which one represent the larger class (whole) that consists of smaller classes (parts)
+
+---
+
+* We call components that contain other components `composite objects` and components that don't contain other components `leaf objects`.
+
+* By treating objects uniformly that means there's a common methods can be called on both `composite` or `leaf` that implies that both must have the same `interface`.
+
+---
+
+### Who does what ?
+
+Pattern         | Description
+----------------|-------------
+Strategy        | Encapsulate interchangeable behavior and use delegation to decide which behavior to use.
+Adapter         | Changes the interface of one or more classes.
+Iterator        | Provides a way to traverse a collection of objects without exposing the collection's implementation.
+Facade          | Simplifies the interface of a group of classes.
+Composite       | Clients treat collections of objects and individual objects uniformly.
+Observer        | Allow a group of objects to be notified when some state changes.
