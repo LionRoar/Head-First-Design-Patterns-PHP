@@ -551,6 +551,18 @@ Separating responsibilities in design is one of the most difficult things to do,
 
 > The Composite Pattern allows you to compose objects into tree structures to represent part-whole hierarchies. Composite lets clients treat individual objects and compositions of objects uniformly.
 
+![Composite](/ch09/composite_pattern.png)
+
+```
+
+The << Component >> abstract class define all objects in composed system.
+The Leaf has no children.
+The Composite contains components.
+
+```
+
+* Composite pattern comes into play when developing a system where a component could either be an individual object or a representation of a collection of objects.
+
 * Composite pattern provides a structure to hold both individual objects an composites.
 
 * A **Component** is any object in a **Composite structure**.
@@ -558,6 +570,7 @@ Separating responsibilities in design is one of the most difficult things to do,
 * **Components** may be other *composites* or *leaf* nodes.
 
 * Remember to balance `transparency` and `safety`.
+
 
 ## Is `Composite Pattern` really follow the single responsibility principle
 
@@ -578,6 +591,9 @@ Having both operations in the Component class will cause a bit loss of *safety* 
 
 ## Composite Pattern used when
 
+* Graphics frameworks are the most common use of this pattern.
+* The Composite pattern is frequently used for abstract syntax tree representations.
+* when dealing with tree structures *Anything that can be modelled as a tree structure can be considered an example of Composite*.
 * when you have collection of objects with whole-part relationships and you want to be able to treat those objects uniformly.
 
 ### `what's whole-part relationships ?`
@@ -602,3 +618,6 @@ Iterator        | Provides a way to traverse a collection of objects without exp
 Facade          | Simplifies the interface of a group of classes.
 Composite       | Clients treat collections of objects and individual objects uniformly.
 Observer        | Allow a group of objects to be notified when some state changes.
+
+---
+
