@@ -1,0 +1,9 @@
+{
+  "name": "leo/MightyGumball",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "": "./"
+     }
+   }
+}

@@ -42,6 +42,8 @@ note: __*do this step for each file that have composer.json*__
 
 * [chapter 9 : The Iterator and Composite Patterns **Well-Managed Collection**](#ch9)
 
+* [chapter 10 : The State Pattern *The State of Things* ](#ch10)
+
 
 ---
 
@@ -620,4 +622,6 @@ Composite       | Clients treat collections of objects and individual objects un
 Observer        | Allow a group of objects to be notified when some state changes.
 
 ---
+
+<h1 id="ch10">chapter 10: The State Pattern *The State of Things*</h1>
 

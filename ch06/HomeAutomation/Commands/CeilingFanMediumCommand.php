@@ -22,20 +22,7 @@ class CeilingFanMediumCommand implements Command {
     }
 
     public function undo(){
-        switch ($this->prevSpeed) {
-            case $this->ceilingFan::$HIGH:
-                $this->ceilingFan->high();
-                break;
-            case $this->ceilingFan::$MEDIUM:
-                $this->ceilingFan->medium();
-                break;
-            case $this->ceilingFan::$LOW:
-                $this->ceilingFan->low();
-                break;
-            case $this->ceilingFan::$OFF:
-                $this->ceilingFan->off();
-                break;
-        }
+        $this->ceilingFan->setSpeed($this->prevSpeed);
     }
 
 }

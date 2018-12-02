@@ -18,20 +18,7 @@ class CeilingFanOffCommand implements Command {
         $this->fan->off();
     }
 
-    public function undo() {
-        switch ($this->prevSpeed) {
-        case $this->fan::$HIGH:
-            $this->fan->high();
-            break;
-        case $this->fan::$MEDIUM:
-            $this->fan->medium();
-            break;
-        case $this->fan::$LOW:
-            $this->fan->low();
-            break;
-        case $this->fan::$OFF:
-            $this->fan->off();
-            break;
-        }
+    public function undo(){
+        $this->ceilingFan->setSpeed($this->prevSpeed);
     }
 }
