@@ -14,25 +14,10 @@ $gumballMachine->turnCrank();
 echo $gumballMachine . PHP_EOL;
 
 $gumballMachine->insertQuarter();
-$gumballMachine->ejectQuarter();
 $gumballMachine->turnCrank();
 
-echo $gumballMachine . PHP_EOL;
-
-$gumballMachine->insertQuarter();
-$gumballMachine->turnCrank();
-$gumballMachine->insertQuarter();
-$gumballMachine->turnCrank();
-$gumballMachine->ejectQuarter();
-
-echo $gumballMachine . PHP_EOL;
-
-$gumballMachine->insertQuarter();
-$gumballMachine->insertQuarter();
-$gumballMachine->turnCrank();
-$gumballMachine->insertQuarter();
-$gumballMachine->turnCrank();
 $gumballMachine->insertQuarter();
 $gumballMachine->turnCrank();
 
+$gumballMachine->refill(10);
 echo $gumballMachine . PHP_EOL;

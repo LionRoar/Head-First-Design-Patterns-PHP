@@ -17,6 +17,12 @@ class HasQuarterState implements StateInterface {
 
     public function turnCrank() {
         echo "You turned...\n";
+        $winner = rand(1, 10);
+        //echo "By chance : $winner \n";
+        if ($winner === 1 && $this->machine->getCount() > 1) {
+            $this->machine->setState($this->machine->getWinnerState());
+            return;
+        }
         $this->machine->setState($this->machine->getSoldState());
     }
 
