@@ -22,4 +22,7 @@ class SoldOutState implements StateInterface {
         echo "No gumball dispensed \n";
     }
 
+    public function description(): string {
+        return "Sold out.";
+    }
 }

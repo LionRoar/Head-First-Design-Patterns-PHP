@@ -28,4 +28,7 @@ class SoldState implements StateInterface {
         }
 
     }
+    public function description(): string {
+        return "Gumball sold.";
+    }
 }

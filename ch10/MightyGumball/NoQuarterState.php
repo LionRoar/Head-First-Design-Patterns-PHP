@@ -25,4 +25,7 @@ class NoQuarterState implements StateInterface {
         echo "You need to pay for your balls\n";
     }
 
+    public function description(): string {
+        return "has no quarter.";
+    }
 }

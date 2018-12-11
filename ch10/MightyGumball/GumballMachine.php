@@ -10,10 +10,10 @@ class GumballMachine {
     private $count = 0;
 
     public function __construct(int $numberOfGumballs) {
-        $this->soldOutState = new SoldOutState();
-        $this->noQuarterState = new NoQuarterState();
-        $this->hasQuarterState = new HasQuarterState();
-        $this->soldState = new SoldState();
+        $this->soldOutState = new SoldOutState($this);
+        $this->noQuarterState = new NoQuarterState($this);
+        $this->hasQuarterState = new HasQuarterState($this);
+        $this->soldState = new SoldState($this);
 
         $this->count = $numberOfGumballs;
         if ($this->count > 0) {
@@ -58,7 +58,7 @@ class GumballMachine {
     }
 
     public function getHasQuarterState() {
-        return $this->noQuarterState;
+        return $this->hasQuarterState;
     }
 
     public function getSoldOutState() {
@@ -71,7 +71,7 @@ class GumballMachine {
     public function __toString() {
         $gumballMachine = "\nMighty Gumball, Inc.\n"
         . "PHP-enabled Standing Gumball Model #2018\n"
-        . "Inventory: " . $this->count . " gumballs\n"
+        . "Inventory: " . $this->getCount() . " gumballs\n"
         . "Machine " . $this->state->description() . "\n";
 
         return $gumballMachine;

@@ -17,11 +17,14 @@ class HasQuarterState implements StateInterface {
 
     public function turnCrank() {
         echo "You turned...\n";
-        $this->machine->setState($this->machine->getSoldSate());
+        $this->machine->setState($this->machine->getSoldState());
     }
 
     public function dispense() {
         echo "No gumball dispensed \n";
     }
 
+    public function description(): string {
+        return "has a quarter. ";
+    }
 }
