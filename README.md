@@ -625,3 +625,37 @@ Observer        | Allow a group of objects to be notified when some state change
 
 <h1 id="ch10">chapter 10: The State Pattern *The State of Things*</h1>
 
+> Allows an object to alter its behaviour when its internal state changes. The object will appear to change its class.
+
+---
+
+![State](/ch10/state_pattern.png)
+
+* The **Context** have number of internal states.
+* The **State** << interface >> defines a common interface for all concrete states.
+* Each *Behavior* correspond with **ConcreteState** implements its own logic for the request.
+* When **Context** changes state a different **ConcreteState** associate with it.
+* Simply change the state object in context to change the behavior.
+
+This is similar to **Strategy Pattern** except changes happens internally rather than the client deciding the strategy.
+
+key-points:
+Think of Strategy Pattern as a flexible alternative to sub-classing.
+Think of State Pattern as an alternative to putting lots of conditionals.
+
+## State Pattern used when
+
+* You need a class to behave differently based on some condition.
+* If you are using *if-else* condition block to perform different actions based on the state.
+
+### Who does what ?
+
+Pattern         | Description
+----------------|-------------
+State           | Encapsulate state-based behavior and delegate behavior to the current state.
+Strategy        | Encapsulate interchangeable behavior and use delegation to decide which behavior to use.
+Template Method | Subclasses decide how to implement steps in an algorithm.
+
+---
+
+
