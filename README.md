@@ -44,6 +44,7 @@ note: __*do this step for each file that have composer.json*__
 
 * [chapter 10 : The State Pattern *The State of Things* ](#ch10)
 
+* [chapter 11 : The Proxy Pattern *Controlling Object Access* ](#ch11)
 
 ---
 
@@ -658,4 +659,5 @@ Template Method | Subclasses decide how to implement steps in an algorithm.
 
 ---
 
+<h1 id="ch11">The Proxy Pattern *Controlling Object Access* </h1>
 
