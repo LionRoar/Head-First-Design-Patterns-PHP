@@ -123,14 +123,14 @@ development lifecycle.
 
 ![LoadPatternsIntoYourBrain](/resources/intoyourbrain.png)
 
-* the secrets to creating maintainable OO systems is thinking about how they might change in the future.
+* The secrets to creating maintainable OO systems is thinking about how they might change in the future.
 
 ---
 Strategy Pattern examples:
 
 * SimUDuck app
 
-* Bounce **ShoppingCart example is not from the book**
+* Bounce+ **ShoppingCart example is not from the book**
 
 ---
 
