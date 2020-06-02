@@ -1,5 +1,7 @@
 <?php
 
+namespace MG\Service;
+
 class SoldState implements StateInterface {
 
     private $machine;

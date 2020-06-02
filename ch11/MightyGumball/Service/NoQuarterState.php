@@ -1,5 +1,7 @@
 <?php
 
+namespace MG\Service;
+
 class NoQuarterState implements StateInterface {
 
     private $machine;

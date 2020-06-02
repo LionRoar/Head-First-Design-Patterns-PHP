@@ -1,5 +1,7 @@
 <?php
 
+namespace MG\Service;
+
 interface StateInterface {
     public function description(): string;
     public function insertQuarter();

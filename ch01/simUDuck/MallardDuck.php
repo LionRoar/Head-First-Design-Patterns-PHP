@@ -11,6 +11,6 @@ class MallardDuck extends Duck {
 
     }
     public function display() {
-        echo "I'm mallard duck!";
+        echo "I'm mallard duck!" . PHP_EOL;
     }
 }

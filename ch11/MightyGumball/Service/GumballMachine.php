@@ -1,6 +1,9 @@
 <?php
 
-class GumballMachine {
+namespace MG\Service;
+
+class GumballMachine implements \MG\GumballMachineInterface {
+
     private $soldOutState;
     private $noQuarterState;
     private $hasQuarterState;
@@ -57,7 +60,7 @@ class GumballMachine {
 
     }
 
-    public function getCount() {
+    public function getCount(): int {
         return $this->count;
     }
 
@@ -81,11 +84,11 @@ class GumballMachine {
         return $this->winnerState;
     }
 
-    public function getState() {
+    public function getState(): string {
         return $this->state->description() . "\n";
     }
 
-    public function getLocation() {
+    public function getLocation(): string {
         return $this->location;
     }
 

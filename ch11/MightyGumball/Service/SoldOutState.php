@@ -1,5 +1,7 @@
 <?php
 
+namespace MG\Service;
+
 class SoldOutState implements StateInterface {
     private $machine;
     public function __construct(GumballMachine $machine) {

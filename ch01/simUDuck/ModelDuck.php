@@ -10,6 +10,6 @@ class ModelDuck extends Duck {
 
     }
     public function display() {
-        echo "I'm a model duck. ";
+        echo "I'm a model duck. " . PHP_EOL;
     }
 }

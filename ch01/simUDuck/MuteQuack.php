@@ -1,7 +1,7 @@
 <?php
 
 class MuteQuack implements QuackBehavior {
-    public function quack(){
-                                                             echo '.......';
+    public function quack() {
+        echo '<< Silence >>';
     }
 }

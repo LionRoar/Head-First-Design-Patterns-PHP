@@ -2,6 +2,6 @@
 
 class FlyRocketPowered implements FlyBehavior {
     public function fly() {
-        echo 'flying rocket => ';
+        echo 'flying rocket 🚀' . PHP_EOL;
     }
 }

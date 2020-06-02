@@ -14,11 +14,23 @@
 
 First you have to generate the auto loader with composer
 
-note: __*do this step for each file that have composer.json*__
+note: __*Do this step for each folder that have composer.json within*__
 
  > *All examples are tested with php7.2*
 
-```$ composer dump-autoload```
+``` bash
+    $ composer dump-autoload
+    $ php index.php
+```
+
+e.g: if we want to run the first example of ch then
+
+ ``` bash
+    1. $ cd /ch01/simUDuck
+    2. $ composer dump-autoload
+    3. $ php index.php
+
+```
 
 ---
 
@@ -57,29 +69,68 @@ note: __*do this step for each file that have composer.json*__
 
 `aka Policy Pattern`
 
-
-
 > Defines a set of encapsulated algorithms that can be swapped to carry out a specific behavior.
 
+__more formal definition:__
+
+> The Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable.
+> Strategy lets the algorithm vary independently from
+clients that use it.
 
 ## Strategy pattern used when
 
 Strategy pattern is used when we have multiple algorithms for specific task and the client decides the actual implementation to be used at runtime.
 
+### Notes
 
-* encapsulate what change and you will have flexible system.
+* `CHANGE` is the one constant in software development.
 
-* separate the code that will be changed.
+* The Example in the book shows that when inheritance hasn’t worked out very well, since the behavior keeps changing across the subclasses and it's not appropriate for all subclasses to have those behaviors, The interface solution sounds promising and can be done in PHP using [Traits](https://www.php.net/manual/en/language.oop5.traits.php) but cant be done in java because java have no code reuse so in java if there's a change you have to track down all the subclasses where that behavior is defined *probably introducing new bugs along the way!*
 
-* Program to an **interface** not an implementation : *an interface in this context could also refers to an abstract class or class that implements particular behavior*
+> 1.Design Principle **Enacapsulate**
+> Identify the aspects of your application that vary and separate them from what stays the same.
+> Another way to think about this principle:
+> take the parts that vary and encapsulate them, so that later you can alter or > extend the parts that vary without affecting those that don’t.
 
-* Represent the behavior of things and  not the thing.
+* Encapsulate what change and you will have flexible system.
 
-* Think of behaviors as a set of algorithms.
+* Separate the code that will be changed.
 
-* __Composition over inheritance__.
+* When you have subclasses that differ in a behavior(s) pull out what varies and (encapsulate) create new set of classes to represent each behavior.
 
-* **ShoppingCart example is not from the book**
+> 2.Design Principle
+> Program to an **interface** not an implementation
+> *An interface in this context could also refers to an abstract class or class that implements particular behavior*
+
+
+* Use an interface to represent each behavior and Each implementation of a *behavior* will implement one of those interface.
+
+* if you can add more behaviors without modifying any of the existing behavior classes or touching any of the superclasses we've achieved a good strategy design pattern.
+
+* Represent the behavior of things and not the thing. themselves
+
+* Think of *set of behaviors* as a *set of algorithms*.
+
+> 3.Design Principle
+> Favor composition over inheritance
+
+* creating systems using composition gives you a lot more flexibility. it lets you encapsulate a family of algorithms into their own set of classes, and lets you change behavior at runtime as long as the object you’re composing with implements the correct behavior interface.
+
+* The principles and patterns can be applied at any stage of the
+development lifecycle.
+
+* Design patterns don’t go directly into your code, they fi rst go into your BRAIN.
+
+![LoadPatternsIntoYourBrain](/resources/intoyourbrain.png)
+
+* the secrets to creating maintainable OO systems is thinking about how they might change in the future.
+
+---
+Strategy Pattern examples:
+
+* SimUDuck app
+
+* Bounce **ShoppingCart example is not from the book**
 
 ---
 

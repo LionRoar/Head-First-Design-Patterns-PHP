@@ -2,6 +2,6 @@
 
 class Squeak implements QuackBehavior {
     public function quack() {
-        echo 'Squeak';
+        echo 'Squeak' . PHP_EOL;
     }
 }
