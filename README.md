@@ -87,7 +87,7 @@ Strategy pattern is used when we have multiple algorithms for specific task and 
 
 * The Example in the book shows that when inheritance hasn’t worked out very well, since the behavior keeps changing across the subclasses and it's not appropriate for all subclasses to have those behaviors, The interface solution sounds promising and can be done in PHP using [Traits](https://www.php.net/manual/en/language.oop5.traits.php) but cant be done in java because java have no code reuse so in java if there's a change you have to track down all the subclasses where that behavior is defined *probably introducing new bugs along the way!*
 
-> 1.Design Principle **Enacapsulate**
+> 1.Design Principle **Enacapsulate** : 
 > Identify the aspects of your application that vary and separate them from what stays the same.
 > Another way to think about this principle:
 > take the parts that vary and encapsulate them, so that later you can alter or > extend the parts that vary without affecting those that don’t.
@@ -98,7 +98,7 @@ Strategy pattern is used when we have multiple algorithms for specific task and 
 
 * When you have subclasses that differ in a behavior(s) pull out what varies and (encapsulate) create new set of classes to represent each behavior.
 
-> 2.Design Principle
+> 2.Design Principle : 
 > Program to an **interface** not an implementation
 > *An interface in this context could also refers to an abstract class or class that implements particular behavior*
 
@@ -111,7 +111,7 @@ Strategy pattern is used when we have multiple algorithms for specific task and 
 
 * Think of *set of behaviors* as a *set of algorithms*.
 
-> 3.Design Principle
+> 3.Design Principle : 
 > Favor composition over inheritance
 
 * creating systems using composition gives you a lot more flexibility. it lets you encapsulate a family of algorithms into their own set of classes, and lets you change behavior at runtime as long as the object you’re composing with implements the correct behavior interface.
@@ -145,7 +145,6 @@ According to GoF, observer design pattern intent is;
 
 > Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.
 
-
 ### Observer used when
 
 State changes in one or more objects should trigger behavior in other object
@@ -155,8 +154,16 @@ PHP provides Stander PHP Library (SPL) Observer Pattern through [SplObserver int
 
 Model-View-Controller (MVC) frameworks also use Observer pattern where _Model_ is the __Subject__ and _Views_ are __observers__ that can register to get notified of any change to the model.
 
+### The Power of Loos Coupling 
 
-* best usage when there's single source of truth one object with many unknown dependents
+When two objects are loosely coupled, the can interact, but have very little knowledge of each other.
+
+The Observer Pattern provides an object design where subject and observers are loosely coupled.
+
+>4. Design Principle : 
+> STRIVE FOR LOOSELY COUPLE DESIGN BETWEEN OBJECT THAT INTERACT
+
+* best usage when there's single source of truth one object with many unknown dependents.
 
 * This single source of truth is an Object's state that's many objects care of knowing it.
 
@@ -165,9 +172,6 @@ Model-View-Controller (MVC) frameworks also use Observer pattern where _Model_ i
 * the Publisher aka the **Subject** updates the observer using common interface.
 
 * the Subscribers aka the **Observers** are loosely coupled and the subject no nothing about then except that they are implement the observer interface.
-
-* __STRIVE FOR LOOSELY COUPLE DESIGN BETWEEN OBJECT THAT INTERACT.__
-
 
 ---
 
