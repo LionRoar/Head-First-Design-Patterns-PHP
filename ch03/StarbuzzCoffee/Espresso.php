@@ -6,7 +6,7 @@ class Espresso extends Beverage {
         $this->description ="Espresso";
     }
 
-    public function cost(){
+    public function cost(): float{
         return 1.99;
     }
 }

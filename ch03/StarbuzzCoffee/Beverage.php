@@ -12,5 +12,5 @@ abstract class Beverage {
         return $this->description;
     }
 
-    abstract public function cost();
+    abstract public function cost() : float ;
 }

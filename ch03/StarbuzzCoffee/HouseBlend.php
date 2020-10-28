@@ -7,7 +7,7 @@ class HouseBlend extends Beverage {
         $this->description ="House Blend Coffee";
     }
 
-    public function cost(){
+    public function cost(): float{
         return 0.89;
     }
 }

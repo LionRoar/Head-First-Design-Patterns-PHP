@@ -23,7 +23,7 @@ note: __*Do this step for each folder that have composer.json within*__
     $ php index.php
 ```
 
-e.g: if we want to run the first example of ch then
+e.g: if we want to run the `simUDuck` example of chapter 1 `ch01` then
 
  ``` bash
     1. $ cd /ch01/simUDuck
@@ -178,37 +178,38 @@ The Observer Pattern provides an object design where subject and observers are l
 
 <h1 id="ch3" > chapter 3 : Decorator Pattern (Design Eye for The Inheritance Guy) </h1>
 
+> Attaches additional responsibilities to an object dynamically.
 
-> Allows for the dynamic wrapping of objects in order to modify their existing responsibilities and behaviors.
+> Decorators provide a flexible alternative to sub-classing for existing functionality.
 
 
-Attach additional responsibilities to an object dynamically.
-Provide a flexible alternative to sub-classing for existing functionality.
+Allows for the dynamic wrapping of objects in order to modify their existing responsibilities and behaviors.
+
+>5. Design Principle : (The Open-Closed Principle) :
+> Classes should be open for extensions, but closed for modifications.
+
 
 ### Decorator used when
 
-Decorator pattern is best used when we introduced to existing code that we want to extend its functionality.
+Decorator pattern is best used when we introduced to existing code that we want to extend its functionality, Or when we want to extend the functionality for the clients without exposing the code.
 
-since decorators are basically wrappers around objects the PHP I/O classes same as Java uses decorator pattern to add more functionality to the stream to read more [Wrappers in php](http://php.net/manual/en/wrappers.php) and you can even register a custom wrapper (decorators) to add your own filter/wrapper to I/O stream see [this example.](https://github.com/LionRoar/Head-First-Design-Patterns-PHP/tree/master/ch03/PHP_IO_DECORATOR)
+Since Decorators are basically wrappers around objects PHP I/O classes same as Java I/O uses decorator pattern to add more functionality to the stream. read more on [Wrappers in php](http://php.net/manual/en/wrappers.php) and you can register a custom wrapper (decorators) to add your own filter/wrapper to I/O stream. @see [this example](https://github.com/LionRoar/Head-First-Design-Patterns-PHP/tree/master/ch03/PHP_IO_DECORATOR) on chapter 03.
 
-
-* Decorator reduce the chance of bugs and side effects in legacy code .
-
-* Decorator it gives the object new responsibility dynamically at runtime using composition .
-
-* It follows the open-close principle .
-
-* General speaking design patterns add abstraction level that's add complexity to code that's way we should always use it on the parts that change and overusing it .
-
-* In other words __ALWAYS IDENTIFY WHAT CHANGES__.
-
-* Again __ALWAYS IDENTIFY WHAT's GOING TO CHANGE__.
-
-* Decorators must have the same super-class as the object they decorate.
-
-* __FAVOR COMPOSITION OVER INHERITANCE__ .
+* Inheritance is one form of extension, but not necessarily the best way to achieve flexibility in our designs. 
 
 * Inheritance makes static behavior but Composition make the behavior dynamic and it can change at runtime .
+
+* Decorator gives the object new responsibility/functionality dynamically at runtime by using composition.
+
+* It's Vital for Decorators to have the same type (superclass/interface) as the objects the are going to decorate/wrap.
+
+* Decorator reduce the chance of bugs and side effects in legacy code.
+
+* General speaking design patterns add abstraction level that's in result adds some level of complexity to the code, that's why we should always use it on the parts that changes and don't overusing it.
+
+* Decorators can result in many small objects in our design, and overuse can be complex.
+
+* Introducing Decorators can increase the complexity of the code; because not only you need to instantiate the component, but also wrap it with (n) number of decorators this can be tackled by using `Factory` and `Builder` Patterns.
 
 ---
 

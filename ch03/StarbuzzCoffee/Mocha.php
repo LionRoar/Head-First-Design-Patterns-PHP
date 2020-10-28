@@ -8,7 +8,7 @@ class Mocha extends CondimentDecorator {
        $this->beverage = $beverage;
     }
 
-    public function cost(){
+    public function cost(): float{
         return 0.20 + $this->beverage->cost();
     }
 }

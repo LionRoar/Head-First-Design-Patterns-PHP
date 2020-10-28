@@ -8,7 +8,7 @@ class Whip extends CondimentDecorator {
        $this->beverage = $beverage;
     }
 
-    public function cost(){
+    public function cost(): float{
         return 0.10 + $this->beverage->cost();
     }
 }

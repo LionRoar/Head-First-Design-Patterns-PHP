@@ -6,7 +6,7 @@ class DarkRoast extends Beverage {
         $this->description ="Espresso";
     }
 
-    public function cost(){
+    public function cost() : float{
         return 0.99;
     }
 }

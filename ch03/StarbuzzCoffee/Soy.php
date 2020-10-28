@@ -8,7 +8,7 @@ class Soy extends CondimentDecorator {
        $this->beverage = $beverage;
     }
 
-    public function cost(){
+    public function cost(): float{
         return 0.15 + $this->beverage->cost();
     }
 }
