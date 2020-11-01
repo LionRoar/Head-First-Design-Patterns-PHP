@@ -265,7 +265,7 @@ A Factory Method handles the object creation and encapsulates it in a subclass.
 
 ### Factory Method Pattern used when
 
-When there's a required use for a lot of concrete classes or the possibility of adding new concrete classes in the future we isolate the creation of the classes in an abstract method in an abstract class.
+When there's a need to make a lot of concrete classes or a desire to add new concrete classes in the future we isolate the creation of the classes to an abstract method in an abstract class to obligate the creation to the subclasses.
 
 ---
 
