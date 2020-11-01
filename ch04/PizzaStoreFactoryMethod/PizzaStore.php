@@ -1,6 +1,6 @@
 <?php
 
-abstract class PizzaStore {
+abstract class PizzaStore { // <- abstract 
 
     private $pizza;
     public function orderPizza(string $type) : Pizza {

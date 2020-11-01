@@ -218,10 +218,19 @@ Since Decorators are basically wrappers around objects PHP I/O classes same as J
 
 `Factory method , Abstract factory , Dependency Inversion ?`
 
+## Contents
+1. Factory Method Pattern.
+2. Abstract Factory Pattern.
+
+There's more to making objects than just using the `new` operator, instantiation is an activity that shouldn't always done in public and can often lead to `coupling problems`.
+
+When you have a code that requires you to make a lot of concrete classes this code probably will need to add new classes and thus will NOT be `Closed for Modification`.
 
 ## The Factory Method Pattern
+
 > The Factory Method Patter defines an interface for creating an object, but lets subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.
 
+A Factory Method handles the object creation and encapsulates it in a subclass.
 
 ![Factory-method](/ch04/factory-method.jpg)
 
@@ -231,7 +240,7 @@ Since Decorators are basically wrappers around objects PHP I/O classes same as J
     |      PizzaStore      |
     +----------------------+ <- abstract class defines
     |                      | abstract factory method `createPizza()`
-    |    createPizza()     | that lets the sub-class decide for it.
+    |abstract createPizza()| that lets the sub-class decide for it.
     |                      |
     |    orderPizza()      |                         <abstract product>
     |                      |                             +-------+
@@ -246,17 +255,17 @@ Since Decorators are basically wrappers around objects PHP I/O classes same as J
 | NYPizzaStore   |      |ChicagoPizzaStore |      |ChicagoCheesePizza|    |
 +----------------+      +------------------+      +--------^---------+    |
 |  createPizza() |      |  createPizza()   |               |              |
-|                |      |                  +--<creates>----+              |
+|                |      |                  +--[creates]->>-+              |
 +-------------+--+      +------------------+                              |
 <creator>     |              <creator>            +-------------+         |
-              +---------------------<creates>---->|NYCheesePizza|---------+
+              +---------------------[creates]--->>|NYCheesePizza|---------+
                                                   +-------------+
 
 ```
 
 ### Factory Method Pattern used when
 
-When a client doesn't know what concrete classes it will be required to create at runtime, but just wants to get a class that will do the job.
+When there's a required use for a lot of concrete classes or the possibility of adding new concrete classes in the future we isolate the creation of the classes in an abstract method in an abstract class.
 
 ---
 

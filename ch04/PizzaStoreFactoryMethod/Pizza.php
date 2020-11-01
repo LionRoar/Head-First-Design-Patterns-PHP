@@ -7,7 +7,7 @@ abstract class Pizza {
     protected $toppings = array();
 
 
-    public function prepare() {
+    public function prepare() : void {
         echo "Preparing " . $this->name . PHP_EOL .
          "Tossing dough..." . PHP_EOL .
          "Adding sauce..." . PHP_EOL .
