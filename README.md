@@ -224,40 +224,44 @@ Since Decorators are basically wrappers around objects PHP I/O classes same as J
 
 There's more to making objects than just using the `new` operator, instantiation is an activity that shouldn't always done in public and can often lead to `coupling problems`.
 
-When you have a code that requires you to make a lot of concrete classes this code probably will need to add new classes and thus will NOT be `Closed for Modification`.
+The Problem : When you have a code that requires you to make a lot of concrete classes this code probably will need to add new classes and thus will NOT be `Closed for Modification`.
+
+All Factory Patterns encapsulate object creation.
 
 ## The Factory Method Pattern
 
 > The Factory Method Patter defines an interface for creating an object, but lets subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.
 
+The Factory Method Pattern encapsulates object creation by letting subclasses decide what objects to create.
+
 A Factory Method handles the object creation and encapsulates it in a subclass.
 
 ![Factory-method](/ch04/factory-method.jpg)
 
-```css
+```php
 
     +----------------------+
-    |      PizzaStore      |
+    |      PizzaStore      | <- [abstract creator]
     +----------------------+ <- abstract class defines
     |                      | abstract factory method `createPizza()`
-    |abstract createPizza()| that lets the sub-class decide for it.
+    |abstract createPizza()| that the sub-class implements to produce product.
     |                      |
     |    orderPizza()      |                         <abstract product>
     |                      |                             +-------+
     +-----^--------------^-+                             | Pizza |<-------+
           |              |                               +-^-----+        |
           |              |                                 |              |
-          |              |                                 |              |
-          |              |                                 |              |
-          |              |                                 |              |
-          |              |                                 |              |
-+---------+------+      ++-----------------+      +------------------+    |
+          |              |_______                          |              |
+          |                      |                         |              |
+          |                      |                         |              |
+[concrete creator]       [concrete creator]                |              |
++---------+------+      +------------------+      +------------------+    |
 | NYPizzaStore   |      |ChicagoPizzaStore |      |ChicagoCheesePizza|    |
 +----------------+      +------------------+      +--------^---------+    |
 |  createPizza() |      |  createPizza()   |               |              |
 |                |      |                  +--[creates]->>-+              |
 +-------------+--+      +------------------+                              |
-<creator>     |              <creator>            +-------------+         |
+    [creator] |              [creator]            +-------------+         |
               +---------------------[creates]--->>|NYCheesePizza|---------+
                                                   +-------------+
 
@@ -269,38 +273,29 @@ When there's a need to make a lot of concrete classes or a desire to add new con
 
 ---
 
-### **Dependency Inversion Principle**
+>6. Design Principle : The Dependency Inversion Principle 
+> Depend upon abstraction. Do not depend upon concrete classes.
+
+#### **Dependency Inversion Principle**
 
  `Depend upon abstractions. Do not depend upon concrete classes.`
 
----
-
-* __You should Depend upon abstraction Not upon an implementation .__
-
-* __High-level components should not depend on low-level components they should both depend on abstractions__.
+* High-level components should not depend on low-level components; rather, they should _both_ depend on abstractions.
 
 * Instantiation is an activity that should not be in public and can often lead to coupling problems.
 
 * `new` keyword __===__ an Implementation _(not an Interface)_.
 
-* __IDENTIFY WHAT CHANGES__.
 
-* Factories (encapsulate) handle details of object creation.
-
-* **Factory method** relays on inheritance and delegates the object creation to subclasses which implements the factory method and create concrete objects.
-
-* **Factory method** lets subclasses decide what class instantiate not because it allows rather than it does not know the product .
-
+* Factory method lets subclasses decide what class instantiate not because it allows rather than it does not know the product .
 
 * **Strive for guidelines** `The following guidelines can help you avoid OO designs that violate the Dependency Inversion Principle` :
 
-1. **No** variable should hold reference for a concrete class.
- `If you use new you’ll be holding a reference to a concrete class.
-  Use a factory to get around that`
+    1. **No variable should hold reference for a concrete class.** If you use `new` you’ll be holding a reference to a concrete class, Use a factory to get around that
 
-1. **No** class should derive form concrete class. `If you derive from a concrete class, you’re depending on a concrete class. Derive from an abstraction, like an interface or an abstract class`
+    1. **No class should derive form concrete class.** If you derive from a concrete class, you’re depending on a concrete class. Derive from an abstraction, like an interface or an abstract class.
 
-1. **No** method should override method on base class if so then the base class not really an abstraction. `If you override an implemented method, then your base class wasn’t really an abstraction to start with. Those methods implemented in the base class are meant to be shared by all your subclasses.`
+    1. **No method should override method on base class.** if so then the base class not really an abstraction. If you override an implemented method, then your base class wasn’t really an abstraction to start with. Those methods implemented in the base class are meant to be shared by all your subclasses.
 
 ---
 
