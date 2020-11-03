@@ -9,7 +9,7 @@ class CheesePizza extends Pizza {
         $this->iFac = $pif;
     }
 
-    public function prepare() : Pizza
+    public function prepare() 
     {
         echo "Preparing $this->name\n";
         $this->dough = $this->iFac->createDough();

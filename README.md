@@ -271,6 +271,8 @@ A Factory Method handles the object creation and encapsulates it in a subclass.
 
 When there's a need to make a lot of concrete classes or a desire to add new concrete classes in the future we isolate the creation of the classes to an abstract method in an abstract class to obligate the creation to the subclasses.
 
+In other words it's used to decouple your client code from the concrete classes you need to instantiate, or if you don’t know ahead of time all the concrete classes you are going to need
+
 ---
 
 >6. Design Principle : The Dependency Inversion Principle 
@@ -301,27 +303,33 @@ When there's a need to make a lot of concrete classes or a desire to add new con
 
 ## Abstract Factory Pattern
 
+Abstract Factory encapsulates the creation of a `family` of products by providing an interface for the product creation.
+
 > Abstract Factory Pattern provides an interface for creating families of related or dependent objects without specifying their concrete classes.
 
+![Abstract-Factory](/ch04/abstract-factory.jpg)
+
+![Abstract-Factory](/ch04/abstract-factory-2.jpg)
+
+The methods of an Abstract Factory are implemented as **factory methods**.
 
 ### Abstract Factory Pattern used when
 
 it's used to construct objects such that they can be decoupled from the implementing system.
 The pattern is best utilized when your system has to create multiple families of products or you want to provide a library of products without exposing the implementation details.
 
-* The methods of the **abstract factory** are often _FACTORY METHODS_.
+whenever you have families of products you need to create and you want to make sure your clients create products that belong together.
 
-![Abstract-Factory](/ch04/abstract-factory.jpg)
+* The methods of the **Abstract Factory** are often **Factory Methods**.
+
 
 ---
 
 * The job of an Abstract Factory is to define an interface for creating a set of products.
 
-* Abstract factory and Factory method are both great in terms of decoupling application from specific implementation.
+* Both the **Abstract factory** and **Factory method** are great in terms of decoupling application from specific implementations.
 
-* **Factory method** uses **_Classes_** (inheritance).
-
-* **Abstract Factory** uses **_Objects_** (objects composition).
+* **Factory method** create objects using (inheritance), while **Abstract Factory** creates objects using (composition). that means to create object using Factory method you need to *extend* class and override a factory method, and for the Abstract Factory it provides an abstract type for creating family of products subclasses define how those products are created and to use the factory you instantiate it and inject it to code written against the abstract type.
 
 ---
 

@@ -9,7 +9,7 @@ abstract class Pizza {
     protected $pepperoni;
     protected $clams;
 
-    abstract public function prepare() : Pizza;
+    abstract public function prepare() ;
 
     public function bake(){
         echo "Bake for 25 minute at 350\n";
