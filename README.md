@@ -336,18 +336,38 @@ whenever you have families of products you need to create and you want to make s
 
 <h1 id="ch5">chapter 5 : Singleton</h1>
 
-
 > The singleton pattern ensures a class has only one instance and provide global access to it .
 
+The one, only and unique object.
+
+* The Singleton Pattern ensures you have at most one instance of a class in your application.
+
+* The Singleton Pattern also provides a global access point to that instance.
 
 ### Singleton Pattern used when
 
-for anything (object) that unique.
+When we only need one object such as: thread pools, caches, dialog boxes, objects that handle
+preferences and registry settings, objects used for logging, and objects that act as device drivers to devices like printers and graphics cards, for many of these types of objects, if we were to instantiate more than one we’d run into all sorts of problems like incorrect program behavior, overuse of resources, or inconsistent results.
 
-Singletons are used a lot where you need to provide a registry, or something like a thread pool. Logging is also another popular use of Singletons, providing one single access point to an applications log file.
+We use the singleton pattern in order to restrict the number of instances that can be created from a resource consuming class to only one.
 
+Resource consuming classes are classes that might slow down our website or cost money. For example:
 
-* Singleton violates the _Single Responsibility Principle_ [read more on the downsides check this amazing article by **James Sugrue**](https://dzone.com/articles/design-patterns-singleton)
+    Some external service providers (APIs) charge money per each use.
+    Some classes that detect mobile devices might slow down our website.
+    Establishing a connection with a database is time consuming and slows down our app.
+
+### Singleton **violates** the *Single Responsibility Principle* “One Class, One Responsibility”
+
+```
+
+The singleton pattern is probably the most infamous pattern to exist, and is considered an anti-pattern because it creates global variables that can be accessed and changed from anywhere in the code.
+
+Yet, The use of the singleton pattern is justified in those cases where we want to restrict the number of instances that we create from a class in order to save the system resources. Such cases include data base connections as well as external APIs that devour our system resources.
+
+```
+
+I encourage you to read more about the Singleton pattern [in this article by Joseph Benharosh](https://phpenthusiast.com/blog/the-singleton-design-pattern-in-php)
 
 ---
 

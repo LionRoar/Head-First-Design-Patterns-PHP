@@ -1,0 +1,15 @@
+{
+  "name": "leo/singleton-db",
+  "authors": [
+    {
+      "name": "Leo",
+      "email": "lionroar07@gmail.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "": "./"
+    }
+  }
+}
