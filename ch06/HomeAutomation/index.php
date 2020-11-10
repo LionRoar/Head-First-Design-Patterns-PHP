@@ -14,35 +14,61 @@ use Commands\CeilingFanOffCommand;
 use Commands\CeilingFanOnCommand;
 use Commands\CeilingFanHighCommand;
 use Commands\CeilingFanMediumCommand;
+use Commands\MacroCommand;
 use Commands\StereoOnWithCDCommand;
 use Commands\StereoOffCommand;
 use Commands\PartyModeCommand;
 use Commands\PartyModeOffCommand;
 #endregion
 
-//index.php [the client]
+//* index.php [the client] also acts as The RemoteLoader
 
-//the remote [the invoker] (holds commands to execute a request by calling execute() )
+//* The RemoteControl [the invoker] (holds commands to execute a request by calling execute() )
 $remote = new RemoteControl();
 
-//Receivers (have no knowledge of what to do to carry out request)
+//* The Receivers (have no knowledge of what to do to carry out request)
 $ceilingFan = new CeilingFan("Living Room");
 $light = new Light("Living room");
 $stereo = new Stereo("Living room");
 
-//requests as objects [commands] (sets a receiver for a command)
-$party = [
+//* The Requests encapsulated with objects [commands] (sets a Receiver for a Command)
+$partyOn = [
     new CeilingFanOnCommand($ceilingFan),
     new LightOnCommand($light),
     new StereoOnWithCDCommand($stereo)
 ];
 
-$macroCommand = new PartyModeCommand($party);
+$partyOf = [
+    new CeilingFanOffCommand($ceilingFan),
+    new LightOffCommand($light),
+    new StereoOffCommand($stereo)
+];
 
-$remote->setCommand(0 , $macroCommand , new PartyModeOffCommand($party));
+$partyOnMacro = new MacroCommand($partyOn);
+$partyOffMacro = new MacroCommand($partyOf);
+
+$remote->setCommand(0 , $partyOnMacro , $partyOffMacro);
 
 $remote->onButtonWasPushed(0);
 
 echo $remote;
 
 $remote->undoButtonWasPushed();
+ 
+/**
+ * Undo Ceiling fan test
+ */
+// $ceilingFanBedroom = new CeilingFan("Bedroom");
+// $cfHighCommand = new CeilingFanHighCommand($ceilingFanBedroom);
+// $cfMidCommand = new CeilingFanMediumCommand($ceilingFanBedroom);
+// $cfOffCommand = new CeilingFanOffCommand($ceilingFanBedroom);
+
+// $remote->setCommand(1, $cfHighCommand, $cfOffCommand);
+// $remote->setCommand(2, $cfMidCommand, $cfOffCommand);
+
+// $remote->onButtonWasPushed(1);
+// $remote->onButtonWasPushed(2);
+
+// $remote->undoButtonWasPushed();
+
+// echo $remote;

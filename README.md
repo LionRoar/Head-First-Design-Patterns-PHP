@@ -371,9 +371,7 @@ I encourage you to read more about the Singleton pattern [in this article by Jos
 
 ---
 
-
 <h1 id="ch6">chapter 6 : Command Pattern</h1>
-
 
 > Encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations.
 
