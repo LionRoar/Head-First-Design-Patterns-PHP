@@ -214,7 +214,7 @@ Since Decorators are basically wrappers around objects PHP I/O classes same as J
 ---
 
 
-<h1 id="ch4">chapter 4 : The Factory pattern </h1>
+<h1 id="ch4">chapter 4 : The Factory Pattern </h1>
 
 `Factory method , Abstract factory , Dependency Inversion ?`
 
@@ -373,26 +373,26 @@ I encourage you to read more about the Singleton pattern [in this article by Jos
 
 <h1 id="ch6">chapter 6 : Command Pattern</h1>
 
+```also sometimes called the Action Pattern or Transaction Pattern```
+
 > Encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations.
 
+* Decouples the requester of an action from the object that preform that action.
+* Encapsulates the requests as an object `(command object)`.
+* A Command object is at the center of this decoupling and encapsulates a receiver with its action `method` (or set of actions).
 
 ### The command pattern used when
 
-it's used to manage algorithms , relationships and responsibilities between objects.
-1. When history of requests is needed.
-1. You need a callback functionality.
-1. Requests need to handled at variant times or in variant order.
-1. The invoker should be decoupled from the object handling the invocation.
+It's used for history tracking, to implement logging and transactional systems, also used to Simplify Distributed System [Read more](https://docs.microsoft.com/en-us/archive/msdn-magazine/2004/september/distributed-system-design-using-command-pattern-msmq-and-net) 
 
-* Decouples the requester of an action from it's preformer.
-* command pattern encapsulate requests as objects .
-* The **client** will never bother about the `how` and the `what` commands will actually do.
-* **The Bank Transaction example is not from the book**
-* The command pattern forwards the request to a **specific** moudle.
+Also The Command Pattern has evolved with alternative designs,`Architectural Patterns` such as `CQS` [(Command-query Separation)](https://martinfowler.com/bliki/CommandQuerySeparation.html) and `CQRS` [(Command Query Responsibility Segregation)](https://martinfowler.com/bliki/CQRS.html) and in their context the command basically a message and the new pattern called called  `Command Bus` / `Simple Bus` [Read more](https://matthiasnoback.nl/2015/01/a-wave-of-command-buses/)
 
+
+* BOUNCE Example: Using command in transactional manner **The `BankTransaction` example is not from the book**
+
+* Extra Tips : A `NULL Object` is an object that implements an interface to do nothing, is useful when you don't have meaningful object to `return` and yet you want to remove the responsibility of handling `NULL` from the client.
 
 ---
-
 
 <h1 id="ch7">The Adapter and The Facade Patterns</h1>
 
