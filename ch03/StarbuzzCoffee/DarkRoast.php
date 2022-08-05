@@ -3,7 +3,7 @@
 class DarkRoast extends Beverage {
     public function __construct()
     {
-        $this->description ="Espresso";
+        $this->description ="Dark Roast";
     }
 
     public function cost() : float{
